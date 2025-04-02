@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+}
+
+
+header {
+    background-color: white;
+    padding: 20px 0;
+    min-height: 100vh; 
+}  
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #056439;
+    margin: 0; 
+
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Zorgt voor ruimte tussen de groepen */
+    align-items: center;
+    padding: 0 20px; /* Voeg wat padding toe aan de zijkanten */
+}
+
+/* Links voor home en store */
+.nav-left {
+    display: flex;
+    gap: 15px; /* Ruimte tussen de links */
+}
+
+.nav-left a {
+    text-decoration: none;
+    color: #000000; 
+    font-size: 20px;
+    text-transform: lowercase;
+}
+
+/* Rechts voor login en sign up */
+.nav-right {
+    display: flex;
+    gap: 15px; /* Ruimte tussen de links */
+}  
+
+.nav-right a {
+    text-decoration: none;
+    color: #000000; 
+    font-size: 20px;
+    text-transform: lowercase; 
+} 
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Ruimte tussen het invoerveld en de knop */
+    margin-left: auto; /* Duwt de zoekbalk naar rechts */
+    margin-right: 20px; /* Voeg wat ruimte toe aan de rechterkant */
+    transform: translateY(-10px); /* Verplaats de zoekbalk iets omhoog */
+} 
+
+.search-bar input {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 5px 15px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #218838; 
+}
+
+.intro-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    width: 50%;
+    padding: 0;
+    text-align: left;
+ 
+}
+
+
+.intro-text h1 {
+    color: #056439;
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+.intro-text p {
+    color: #056439;
+    font-size: 14px;
+    margin-bottom: 20px;
+} 
+
+.btn {
+    display: inline-block; 
+    background-color: #28a745;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+ 
+.btn:hover {
+    background-color: #218838;
+}  
