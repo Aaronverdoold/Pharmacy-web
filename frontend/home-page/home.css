@@ -10,32 +10,36 @@ body {
     background-color: #f8f9fa;
 }
 
-
 header {
     background-color: white;
     padding: 20px 0;
-    min-height: 100vh; 
+    min-height: 100vh;
+    position: relative;
 }  
 
 .logo {
     font-size: 28px;
     font-weight: bold;
     color: #056439;
-    margin: 0; 
-
+    margin: 0;
 }
+
+.logo img {
+    width: 150px;
+    height: auto;
+} 
 
 nav {
     display: flex;
-    justify-content: space-between; /* Zorgt voor ruimte tussen de groepen */
+    justify-content: space-between;
     align-items: center;
-    padding: 0 20px; /* Voeg wat padding toe aan de zijkanten */
+    padding: 0 20px;
 }
 
 /* Links voor home en store */
 .nav-left {
     display: flex;
-    gap: 15px; /* Ruimte tussen de links */
+    gap: 15px;
 }
 
 .nav-left a {
@@ -48,7 +52,8 @@ nav {
 /* Rechts voor login en sign up */
 .nav-right {
     display: flex;
-    gap: 15px; /* Ruimte tussen de links */
+    align-items: center; 
+    gap: 15px;
 }  
 
 .nav-right a {
@@ -61,10 +66,10 @@ nav {
 .search-bar {
     display: flex;
     align-items: center;
-    gap: 10px; /* Ruimte tussen het invoerveld en de knop */
-    margin-left: auto; /* Duwt de zoekbalk naar rechts */
-    margin-right: 20px; /* Voeg wat ruimte toe aan de rechterkant */
-    transform: translateY(-10px); /* Verplaats de zoekbalk iets omhoog */
+    gap: 10px;
+    margin-left: auto;
+    margin-right: 20px;
+    transform: translateY(-10px);
 } 
 
 .search-bar input {
@@ -88,17 +93,25 @@ nav {
     background-color: #218838; 
 }
 
-.intro-text {
+/* Nieuwe stijlen voor intro sectie */
+.intro-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    left: 20px;
-    width: 50%;
-    padding: 0;
-    text-align: left;
- 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1200px;
+    padding: 0 20px;
 }
 
+.intro-text {
+    width: 50%;
+    padding-right: 50px;
+    text-align: left;
+}
 
 .intro-text h1 {
     color: #056439;
@@ -113,6 +126,18 @@ nav {
     margin-bottom: 20px;
 } 
 
+.intro-image {
+    width: 40%;
+    text-align: right;
+}
+
+.intro-image img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+}
+
+/* Bestaande button stijlen */
 .btn {
     display: inline-block; 
     background-color: #28a745;
@@ -120,6 +145,7 @@ nav {
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 1rem;
+    text-decoration: none;
 }
  
 .btn:hover {
