@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <img src="images/Pharmacy_logo-removebg-preview.png" alt="Logo quiz" class="logo"></a>
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    
-    <form action="" method="POST" autocomplete="on">
-        <h1>Login</h1>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" autocomplete="email">
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" autocomplete="current-password">
-        
-        <button type="submit">Login</button>
-        <p>Don't have an account?<br><a href="../sign%20up/signup.html" class="login-link">Sign up!</a></p>
-    </form>
+    <div class="container">
+        <img src="/images/Nieuwe logo.png" alt="Logo quiz" class="logo">
+        <form action="" method="POST">
+            <h1>Login</h1>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            
+            <button type="submit">Login</button>
+            <p>Don't have an account?</p><br> <a href="/frontend/sign up/signup.html" class="login-link">Sign up!</a></p>
+        </form>
+    </div> 
 </body>
 </html>
