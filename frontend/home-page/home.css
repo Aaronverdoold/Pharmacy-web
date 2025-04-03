@@ -22,7 +22,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 15px; /* Navbar iets hoger geplaatst */
+    margin-top: 15px 30px; /* Navbar iets hoger geplaatst */
 }
 
 /* Logo stijlen */
@@ -62,10 +62,10 @@ nav {
 }
 
 .search-bar input {
-    padding: 5px 10px;
+    padding: 8px 15px; 
     font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 .search-bar button {
@@ -131,8 +131,8 @@ nav {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
-    max-width: 1200px;
-    padding: 0 20px;
+    max-width: 1400px;
+    padding: 0 20px; 
 }
 
 .intro-text {
@@ -160,10 +160,18 @@ nav {
 }
 
 .intro-image img {
-    width: 100%;
-    height: auto;
-    max-width: 400px;
-}
+    width: 700px; /* Maak de afbeelding groter */
+    max-width: 100%; /* Zorg ervoor dat hij niet groter wordt dan het scherm */
+    height: auto; /* Houd de verhoudingen correct */
+} 
+
+/* Zorg ervoor dat hij kleiner blijft op mobiele schermen */
+@media (max-width: 768px) {
+    .intro-image img {
+        width: 80vw; /* 80% van het scherm op mobiel */
+        max-width: 400px;
+    }
+} 
 
 .btn {
     display: inline-block; 
