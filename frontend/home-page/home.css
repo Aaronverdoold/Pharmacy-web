@@ -29,6 +29,7 @@ header {
 .logo img {
     width: 150px;
     height: auto;
+    margin-top: -50px;
 }
 
 /* Navbar stijlen */
@@ -37,7 +38,9 @@ nav {
     align-items: center;
     gap: 30px;
     flex-grow: 1; /* Zorgt ervoor dat nav de beschikbare ruimte gebruikt */
-}
+    margin-top: -50px;
+    background-color: lightgrey; 
+} 
 
 /* Home & Store links uitlijnen */
 .nav-left {
