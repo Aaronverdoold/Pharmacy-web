@@ -1,5 +1,4 @@
 <?php
-// dbconnect.php
 
 function dbconnection() {
     $servername = "localhost";

@@ -1,5 +1,4 @@
 <?php
-// signup.php
 
 include './../database-connect/dbconnect.php';  // Include the database connection
 
