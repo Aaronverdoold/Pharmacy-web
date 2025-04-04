@@ -6,18 +6,18 @@ function updateNavigation() {
         .then((response) => response.json())
         .then((data) => {
             if (data.loggedIn) {
-                // User is logged in, show email
+                // User is logged in, show username
                 if (userNav) {
                     userNav.innerHTML = `
-                        <span class="user-email">${data.email}</span>
-                        <a href="/Pharmacy-web/backend/login/logout.php" class="logout-link">Logout</a>
+                        <span class="user-username">${data.username}</span>
+                        <a href="../../backend/login/logout.php" class="logout-link">Logout</a>
                     `;
                 }
             } else {
                 // User is not logged in, show login/signup links
                 if (userNav) {
                     userNav.innerHTML = `
-                        <a href="./../login-page/login.html">login</a>  
+                        <a href="./../login-page/login.html">login</a>
                     `;
                 }
             }

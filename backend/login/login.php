@@ -1,24 +1,18 @@
 <?php
-
 include './../database-connect/dbconnect.php';
 include 'session.php';
 
+header('Content-Type: application/json');
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
+    $email = trim($_POST['email']);
     $password = $_POST['password'];
 
-    // Validate the email and password
-    if (checkUser($email, $password)) {
-        echo "Login successful!";
-        header("Location: ../../frontend/home-page/home.html");
+    if (empty($email) || empty($password)) {
+        echo json_encode(['success' => false, 'message' => 'Email and password are required.']);
         exit();
-    } else {
-        echo "Invalid email or password.";
     }
-}
 
-// Function to check if the user exists and verify the password
-function checkUser($email, $password) {
     $conn = dbconnection();
 
     $query = "SELECT * FROM users WHERE email = :email";
@@ -28,25 +22,23 @@ function checkUser($email, $password) {
         $stmt->execute([':email' => $email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // Check if user exists
         if (!$user) {
-            echo "No user found with this email.<br>";
-            return false;
+            echo json_encode(['success' => false, 'message' => 'No user found with this email.']);
+            exit();
         }
 
-        // Verify the password
-        if (password_verify($password, $user["password"])) {
-            logSession($user["email"]);
-            return true;
-        } else {
-            // If password doesn't match, return false
-            echo "Incorrect password.<br>";
-            return false;
+        if (!password_verify($password, $user["password"])) {
+            echo json_encode(['success' => false, 'message' => 'Incorrect password.']);
+            exit();
         }
+
+        logSession($user["username"], $user["email"]);
+        echo json_encode(['success' => true]);
+        exit();
+
     } catch (PDOException $e) {
-        echo 'Error: ' . $e->getMessage();
+        echo json_encode(['success' => false, 'message' => 'Server error.']);
+        exit();
     }
-
-    return false;
 }
 ?>

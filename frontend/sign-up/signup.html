@@ -1,30 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Sign up</title>
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="signup.css"/>
 </head>
 <body>
-    <div class="container">
-        <img src="../../images/Nieuwe%20logo.png" alt="Logo quiz" class="logo">
-        <form action="./../../backend/sign-up/signup.php" method="POST">
-            <h1>Sign up</h1>
+<div class="container">
+    <img src="../../images/Nieuwe%20logo.png" alt="Logo quiz" class="logo"/>
 
+    <form id="signupForm" action="./../../backend/sign-up/signup.php" method="POST">
+        <h1>Sign up</h1>
+
+        <!-- Username Field -->
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required />
+            <div class="requirements" id="usernameRequirements" style="display:none;">
+                <small data-requirement="length" class="invalid">Must be 3-20 characters long</small><br>
+                <small data-requirement="chars" class="invalid">Only letters, numbers, and underscores allowed</small>
+            </div>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required />
+            <div class="requirements" id="emailRequirements" style="display:none;">
+                <small data-requirement="format" class="invalid">Must be a valid email format (example@mail.com)</small>
+            </div>
+        </div>
 
+        <!-- Password Field -->
+        <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required />
+            <div class="requirements" id="passwordRequirements" style="display:none;">
+                <small data-requirement="length" class="invalid">At least 8 characters</small><br>
+                <small data-requirement="uppercase" class="invalid">At least one uppercase letter</small><br>
+                <small data-requirement="lowercase" class="invalid">At least one lowercase letter</small><br>
+                <small data-requirement="number" class="invalid">At least one number</small>
+            </div>
+        </div>
 
-            <label for="confirm-password">Re-enter password:</label>
-            <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your password" required>
+        <!-- Confirm Password Field -->
+        <div class="form-group">
+            <label for="confirmPassword">Re-enter password:</label>
+            <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm your password" required />
+            <div class="requirements" id="confirmRequirements" style="display:none;">
+                <small data-requirement="match" class="invalid">Passwords must match</small>
+            </div>
+        </div>
 
-            <button type="submit">Sign up</button>
+        <button type="submit">Sign up</button>
 
-            <p>Already have an account?</p><br> <a href="/frontend/login-page/login.html" class="login-link">Log in!</a></p>
-        </form>
-    </div>
+        <p>Already have an account?</p>
+        <a href="../login-page/login.html" class="login-link">Log in!</a>
+    </form>
+</div>
+
+<script src="signup.js"></script>
 </body>
 </html>
