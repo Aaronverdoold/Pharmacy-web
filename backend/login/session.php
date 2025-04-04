@@ -3,7 +3,8 @@
 session_start();
 
 // Function to log user in
-function logSession($email) {
+function logSession($username, $email) {
+    $_SESSION['username'] = $username;
     $_SESSION['user_email'] = $email;
     $_SESSION['logged_in'] = true;
     $_SESSION['last_activity'] = time();
@@ -32,12 +33,11 @@ function logout() {
     session_destroy();
 }
 
-// Function to get current user email
-function getCurrentUser() {
+// Function to get current username
+function getCurrentUsername() {
     if (isLoggedIn()) {
-        return $_SESSION['user_email'];
+        return $_SESSION['username'];
     }
     return null;
 }
-
 ?>

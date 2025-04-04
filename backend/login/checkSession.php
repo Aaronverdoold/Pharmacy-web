@@ -5,7 +5,7 @@ require_once 'session.php';
 if (isLoggedIn()) {
     echo json_encode([
         'loggedIn' => true,
-        'email' => getCurrentUser()
+        'username' => getCurrentUsername()
     ]);
 } else {
     echo json_encode([
