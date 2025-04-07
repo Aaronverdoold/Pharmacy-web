@@ -1,0 +1,161 @@
+/* Algemene reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Algemene stijlen */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Header stijl */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigatie-container */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo */
+.logo img {
+    height: 60px;
+}
+
+/* Link groepen */
+.nav-left, .nav-right {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Navigatie links */
+.nav-left a, .nav-right a {
+    text-decoration: none;
+    color: #056439;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-left a:hover, .nav-right a:hover {
+    background-color: #056439;
+    color: white;
+}
+
+/* Zoekbalk */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 6px 12px;
+    border-radius: 30px;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    padding: 6px;
+    width: 120px;
+}
+
+.search-bar button {
+    background-color: #056439;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #024427;
+}
+
+
+
+.cart-icon {
+    font-size: 24px;
+  }
+
+  /* Main Content */
+  main {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centreer de inhoud horizontaal */
+  }
+
+  .products-container {
+    max-width: 1200px; /* Beperk de maximale breedte */
+    width: 100%;
+    margin: 0 auto; /* Centreer de container */
+  }
+
+  .products-row {
+    display: flex;
+    justify-content: center; /* Centreer de producten horizontaal */
+    gap: 20px;
+    margin-bottom: 30px;
+    position: relative; /* Voor de pijl */
+  }
+
+  .product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-image {
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 180px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Zorgt ervoor dat de afbeelding goed past */
+  }
+
+  .add-button {
+    background-color: #4aba91;
+    color: black;
+    border: none;
+    width: 180px;
+    padding: 10px 0;
+    cursor: pointer;
+    font-size: 16px;
+  }
+    .arrow-right { 
+        position: absolute;
+        top: 50%;
+        right: -50px; /* Zet de pijl dichter bij de producten */
+        transform: translateY(-50%); /* Houd de pijl gecentreerd */
+        font-size: 24px; 
+        color: #000000; 
+        cursor: pointer;
+    }
+    
