@@ -18,52 +18,69 @@ header {
 }
 
 /* Navigatie-container */
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    background-color: #ffffff;
+.navbar {
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-/* Logo */
-.logo img {
-    height: 60px;
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-/* Link groepen */
-.nav-left, .nav-right {
+.logo img {
+    width: 140px;
+    height: auto;
+}
+
+/* Nav layout */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-grow: 1;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.nav-left,
+.nav-right {
     display: flex;
     gap: 20px;
     align-items: center;
 }
 
-/* Navigatie links */
-.nav-left a, .nav-right a {
+.nav-left a,
+.nav-right a {
     text-decoration: none;
     color: #056439;
-    font-size: 16px;
     font-weight: 500;
-    padding: 8px 12px;
+    font-size: 16px;
+    padding: 8px 14px;
     border-radius: 8px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.nav-left a:hover, .nav-right a:hover {
+.nav-left a:hover,
+.nav-right a:hover {
     background-color: #056439;
     color: white;
 }
 
-/* Zoekbalk */
+/* Search bar */
 .search-bar {
     display: flex;
     align-items: center;
-    background-color: #f0f0f0;
+    background-color: #eeeeee;
     padding: 6px 12px;
     border-radius: 30px;
+    gap: 8px;
 }
 
 .search-bar input {
@@ -72,28 +89,171 @@ header {
     outline: none;
     font-size: 14px;
     padding: 6px;
-    width: 120px;
+    width: 160px;
 }
 
 .search-bar button {
     background-color: #056439;
     color: white;
     border: none;
-    padding: 6px 12px;
+    padding: 6px 16px;
     border-radius: 20px;
     font-size: 14px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .search-bar button:hover {
     background-color: #024427;
 }
 
+/* Dropdown Cart */
+.cart-dropdown {
+    position: absolute;
+    top: 125px;  /* Adjust the space below the cart button */
+    right: 0;
+    width: 250px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: none;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1000;
+    /* Additional styling to ensure it's under the button */
+}
 
+.cart-button {
+    position: relative; /* Position relative to ensure dropdown appears below it */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    position: relative;
+}
 
-.cart-icon {
-    font-size: 24px;
-  }
+/* Cart button number */
+.cart-button span {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    font-size: 1rem;
+    background-color: #056439;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-weight: bold;
+}
+
+.cart-dropdown::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 20px; /* Adjust to center the triangle */
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 10px solid #ffffff;
+}
+
+.cart-dropdown .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.cart-dropdown .cart-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.cart-dropdown .cart-item span {
+    flex-grow: 1;
+    color: #333;
+    font-weight: 500;
+}
+
+.cart-dropdown .cart-item .close-icon {
+    cursor: pointer;
+    font-size: 18px;
+    color: #ff4747; /* Red color for the close icon */
+    transition: color 0.3s ease;
+}
+
+.cart-dropdown .cart-item .close-icon:hover {
+    color: #ff0000;
+}
+
+.cart-dropdown #cart-total {
+    margin-top: 15px;
+    padding-top: 10px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 16px;
+    border-top: 1px solid #ddd;
+}
+
+.cart-dropdown .cart-empty {
+    text-align: center;
+    color: #777;
+    font-size: 16px;
+    padding: 10px;
+}
+
+/* Style for the cart count bubble */
+.cart-button span {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    font-size: 1rem;
+    background-color: #056439;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    min-width: 20px;
+    min-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hover effects for the cart dropdown */
+.cart-dropdown:hover {
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.15);
+}
+
+.cart-button:hover + .cart-dropdown {
+    display: block;
+}
+
+/* Afrekenknop styling */
+.checkout-button {
+    background-color: #056439;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 12px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-button:hover {
+    background-color: #024427;
+}
+
 
   /* Main Content */
   main {
@@ -103,59 +263,76 @@ header {
     align-items: center; /* Centreer de inhoud horizontaal */
   }
 
-  .products-container {
-    max-width: 1200px; /* Beperk de maximale breedte */
-    width: 100%;
-    margin: 0 auto; /* Centreer de container */
-  }
-
-  .products-row {
-    display: flex;
-    justify-content: center; /* Centreer de producten horizontaal */
-    gap: 20px;
-    margin-bottom: 30px;
-    position: relative; /* Voor de pijl */
-  }
-
-  .product {
+.product {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    width: 220px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+}
 
-  .product-image {
-    border: 1px solid #ccc;
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    border: 1px solid #ddd;
+    border-radius: 12px;
     padding: 15px;
     width: 180px;
     height: 160px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
-  }
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+}
 
-  .product-image img {
+.product-image img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* Zorgt ervoor dat de afbeelding goed past */
-  }
+    object-fit: contain;
+}
 
-  .add-button {
-    background-color: #4aba91;
-    color: black;
+.product-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    text-align: center;
+    color: #333;
+}
+
+.product-price {
+    font-size: 15px;
+    color: #056439;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.products-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.add-button {
+    background-color: #056439;
+    color: white;
     border: none;
-    width: 180px;
+    width: 100%;
     padding: 10px 0;
     cursor: pointer;
-    font-size: 16px;
-  }
-    .arrow-right { 
-        position: absolute;
-        top: 50%;
-        right: -50px; /* Zet de pijl dichter bij de producten */
-        transform: translateY(-50%); /* Houd de pijl gecentreerd */
-        font-size: 24px; 
-        color: #000000; 
-        cursor: pointer;
-    }
-    
+    font-size: 14px;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: #024427;
+}
