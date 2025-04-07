@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Apothecare</title>
-    <link rel="stylesheet" href="home.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apothecare</title>
+  <link rel="stylesheet" href="home.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <div class="nav-container">
-          <div class="logo">
-            <img src="../../images/Nieuwe%20logo.png" alt="Pharmacy logo">
-          </div>
-      
-          <nav class="main-nav">
-            <div class="nav-left">
-              <a href="#">Home</a>
-              <a href="#">Store</a>
-            </div>
-      
-            <div class="search-bar">
-              <input type="text" placeholder="Search...">
-              <button type="submit">Search</button>
-            </div>
-      
-            <div class="nav-right" id="userNav">
-            </div>
-          </nav>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="../../images/Nieuwe logo.png" alt="Apothecare Logo" />
+      </div>
+
+      <nav class="main-nav">
+        <div class="nav-left">
+          <a href="#">Home</a>
+          <a href="#">Store</a>
         </div>
-    <div class="intro-container">
-        <section class="intro-text">
-            <h1>quality medication &<br>professional care</h1>
-            <p>quality medication for you or a loved one</p>
-            <a href="#" class="btn">shop now</a>
-        </section>
-        <div class="intro-image">
-            <img src="../../images/R-removebg-preview.png" alt="Pharmacy illustration">
+
+        <div class="search-bar">
+          <input type="text" placeholder="Search..." />
+          <button type="submit">Search</button>
         </div>
+
+        <div class="nav-right" id="userNav">
+          <!-- Populated by JS (login/signup or profile) -->
+        </div>
+      </nav>
     </div>
-</header>
-<script src="home.js"></script>
+  </header>
+
+  <!-- Intro Section -->
+  <section class="intro-container">
+    <div class="intro-text">
+      <h1>Quality medication &<br>professional care</h1>
+      <p>Reliable medication for you or your loved ones, backed by expert support and care.</p>
+      <a href="#" class="btn">Shop now</a>
+    </div>
+
+    <div class="intro-image">
+      <img src="../../images/pillen.jpg" alt="Pharmacy illustration" />
+    </div>
+  </section>
+
+  <script src="home.js"></script>
 </body>
 </html>
