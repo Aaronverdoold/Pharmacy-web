@@ -32,8 +32,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit();
         }
 
+        // Log the session
         logSession($user["username"], $user["email"]);
-        echo json_encode(['success' => true]);
+
+        // Redirect depending on user role
+        if ($user["is_admin"] == 1) {
+            echo json_encode([
+                'success' => true,
+                'role' => 'admin',
+                'redirect' => '../../frontend/dashboard/dashboard.html'
+            ]);
+        } else {
+            echo json_encode([
+                'success' => true,
+                'role' => 'user',
+                'redirect' => '../../frontend/home-page/home.html'
+            ]);
+        }
         exit();
 
     } catch (PDOException $e) {
