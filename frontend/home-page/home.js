@@ -17,7 +17,7 @@ function updateNavigation() {
                 // User is not logged in, show login/signup links
                 if (userNav) {
                     userNav.innerHTML = `
-                        <a href="./../login-page/login.html">login</a>
+                        <a href="./../login-page/login.html">Login</a>
                     `;
                 }
             }
@@ -27,7 +27,7 @@ function updateNavigation() {
             // Default to showing login/signup links if there's an error
             if (userNav) {
                 userNav.innerHTML = `
-                    <a href="./../login-page/login.html">login</a>
+                    <a href="./../login-page/login.html">Login</a>
                 `;
             }
         });

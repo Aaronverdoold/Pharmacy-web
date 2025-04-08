@@ -42,7 +42,6 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     const emailValue = email.value.trim();
     const passwordValue = password.value.trim();
 
-    // Always clear previous error
     errorBox.style.display = 'none';
     errorBox.textContent = '';
 
@@ -61,11 +60,11 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                // Clear error just in case
-                errorBox.style.display = 'none';
-                errorBox.textContent = '';
-                // Redirect to homepage
-                window.location.href = "../../frontend/home-page/home.html";
+                if (data.role === 'admin') {
+                    window.location.href = "../../frontend/dashboard/dashboard.html";
+                } else {
+                    window.location.href = "../../frontend/home-page/home.html";
+                }
             } else {
                 showError(data.message || "Login failed.");
             }
