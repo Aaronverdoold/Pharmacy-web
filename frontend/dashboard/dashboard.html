@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="../../images/Nieuwe logo.png" alt="Pharmacy Logo">
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#overview" class="active"><i class="fas fa-home"></i> Overview</a>
+                <a href="#medications"><i class="fas fa-pills"></i> Medications</a>
+                <a href="#patients"><i class="fas fa-users"></i> Patients</a>
+                <a href="#prescriptions"><i class="fas fa-file-invoice"></i> Prescriptions</a>
+                <a href="#analytics"><i class="fas fa-chart-bar"></i> Analytics</a>
+                <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <nav class="top-nav">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-profile">
+                    <span class="notifications"><i class="fas fa-bell"></i></span>
+                    <img src="../../images/R-removebg-preview.png" alt="Profile" class="profile-img">
+                </div>
+            </nav>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <section id="overview">
+                    <h1>Dashboard Overview</h1>
+                    
+                    <!-- Stats Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fas fa-pills"></i>
+                            <div class="stat-info">
+                                <h3>Total Medications</h3>
+                                <p>1,234</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <div class="stat-info">
+                                <h3>Active Patients</h3>
+                                <p>856</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-file-invoice"></i>
+                            <div class="stat-info">
+                                <h3>Prescriptions</h3>
+                                <p>432</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-chart-line"></i>
+                            <div class="stat-info">
+                                <h3>Revenue</h3>
+                                <p>$12,345</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Analytics Section -->
+                <section id="analytics" class="analytics-section">
+                    <h2>Analytics Overview</h2>
+                    <div class="analytics-grid">
+                        <!-- Sales Chart -->
+                        <div class="chart-card">
+                            <h3>Sales Overview</h3>
+                            <canvas id="salesChart"></canvas>
+                        </div>
+                        <!-- Patient Growth -->
+                        <div class="chart-card">
+                            <h3>Patient Growth</h3>
+                            <canvas id="patientChart"></canvas>
+                        </div>
+                        <!-- Medication Distribution -->
+                        <div class="chart-card">
+                            <h3>Medication Distribution</h3>
+                            <canvas id="medicationChart"></canvas>
+                        </div>
+                        <!-- Prescription Trends -->
+                        <div class="chart-card">
+                            <h3>Prescription Trends</h3>
+                            <canvas id="prescriptionChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Detailed Analytics -->
+                <div class="detailed-analytics">
+                    <div class="analytics-row">
+                        <!-- Top Medications -->
+                        <div class="analytics-card">
+                            <h3>Top Medications</h3>
+                            <div class="medication-list">
+                                <div class="medication-item">
+                                    <span class="med-name">Paracetamol</span>
+                                    <span class="med-count">234 units</span>
+                                </div>
+                                <div class="medication-item">
+                                    <span class="med-name">Amoxicillin</span>
+                                    <span class="med-count">189 units</span>
+                                </div>
+                                <div class="medication-item">
+                                    <span class="med-name">Ibuprofen</span>
+                                    <span class="med-count">156 units</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Recent Prescriptions -->
+                        <div class="analytics-card">
+                            <h3>Recent Prescriptions</h3>
+                            <div class="prescription-list">
+                                <div class="prescription-item">
+                                    <div class="pres-info">
+                                        <span class="pres-name">John Doe</span>
+                                        <span class="pres-date">2024-04-08</span>
+                                    </div>
+                                    <span class="pres-status">Completed</span>
+                                </div>
+                                <div class="prescription-item">
+                                    <div class="pres-info">
+                                        <span class="pres-name">Jane Smith</span>
+                                        <span class="pres-date">2024-04-07</span>
+                                    </div>
+                                    <span class="pres-status">Pending</span>
+                                </div>
+                                <div class="prescription-item">
+                                    <div class="pres-info">
+                                        <span class="pres-name">Mike Johnson</span>
+                                        <span class="pres-date">2024-04-06</span>
+                                    </div>
+                                    <span class="pres-status">Completed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+</html> 
