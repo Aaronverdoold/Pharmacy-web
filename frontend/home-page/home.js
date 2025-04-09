@@ -32,6 +32,21 @@ function updateNavigation() {
             }
         });
 }
+let translated = false;
 
+    function translatePage() {
+      const headline = document.getElementById('headline');
+      const intro = document.getElementById('intro-description');
+
+      if (!translated) {
+        headline.innerHTML = "Kwaliteitsmedicatie &<br>professionele zorg";
+        intro.innerText = "Betrouwbare medicatie voor jou of je dierbaren, ondersteund door deskundige zorg.";
+        translated = true;
+      } else {
+        headline.innerHTML = "Quality medication &<br>professional care";
+        intro.innerText = "Reliable medication for you or your loved ones, backed by expert support and care.";
+        translated = false;
+      }
+    }
 // Check login status when page loads
 updateNavigation();

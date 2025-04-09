@@ -145,9 +145,28 @@ body {
 
 .btn:hover {
     background-color: #024427;
-}
+  }
 
-.intro-image {
+  #translateBtn {
+    margin-right: 100px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #056439, #1c9860);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  #translateBtn:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(135deg, #024427, #094129);
+  }
+  
+  .intro-image {
     flex: 1 1 400px;
     text-align: center;
 }
