@@ -17,82 +17,82 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Navigatie-container */
-.navbar {
+  /* ===== Navbar Styling ===== */
+  .navbar {
     background-color: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 0;
     z-index: 1000;
-}
-
-.nav-container {
+  }
+  
+  .nav-container {
     display: flex;
     justify-content: space-between;
     padding: 15px 40px;
     max-width: 1400px;
     margin: 0 auto;
-}
-
-.logo img {
+  }
+  
+  .logo img {
     width: 140px;
     height: auto;
-}
-
-/* Nav layout */
-.main-nav {
+  }
+  
+  /* Nav layout */
+  .main-nav {
     display: flex;
     align-items: center;
     gap: 30px;
     flex-grow: 1;
     justify-content: flex-end;
     flex-wrap: wrap;
-}
-
-.nav-left,
-.nav-right {
+  }
+  
+  .nav-left,
+  .nav-right {
     display: flex;
     gap: 20px;
     align-items: center;
-}
-
-.nav-left a,
-.nav-right a {
+  }
+  
+  .nav-left a,
+  .nav-right a {
     text-decoration: none;
     color: #056439;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 18px;
     padding: 8px 14px;
     border-radius: 8px;
     transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.nav-left a:hover,
-.nav-right a:hover {
+  }
+  
+  .nav-left a:hover,
+  .nav-right a:hover {
     background-color: #056439;
     color: white;
-}
-
-/* Search bar */
-.search-bar {
+  }
+  
+  /* Search bar */
+  .search-bar {
     display: flex;
     align-items: center;
     background-color: #eeeeee;
     padding: 6px 12px;
     border-radius: 30px;
     gap: 8px;
-}
-
-.search-bar input {
+  }
+  
+  .search-bar input {
     border: none;
     background: transparent;
     outline: none;
     font-size: 14px;
     padding: 6px;
     width: 160px;
-}
-
-.search-bar button {
+  }
+  
+  .search-bar button {
     background-color: #056439;
     color: white;
     border: none;
@@ -101,11 +101,11 @@ header {
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.search-bar button:hover {
+  }
+  
+  .search-bar button:hover {
     background-color: #024427;
-}
+  }
 
 /* Dropdown Cart */
 .cart-dropdown {
