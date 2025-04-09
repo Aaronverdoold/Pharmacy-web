@@ -1,21 +1,24 @@
+/* Reset default browser styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Base styles for the entire page */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f8f9fa;
     color: #333;
 }
 
+/* Main layout container */
 .dashboard-container {
     display: flex;
     min-height: 100vh;
 }
 
-/* Sidebar Styles */
+/* Left sidebar with navigation */
 .sidebar {
     width: 250px;
     background-color: white;
@@ -25,6 +28,7 @@ body {
     height: 100vh;
 }
 
+/* Pharmacy logo styling */
 .logo {
     text-align: center;
     margin-bottom: 30px;
@@ -35,6 +39,7 @@ body {
     height: auto;
 }
 
+/* Navigation menu */
 .sidebar-nav {
     display: flex;
     flex-direction: column;
@@ -64,14 +69,14 @@ body {
     width: 20px;
 }
 
-/* Main Content Styles */
+/* Main content area */
 .main-content {
     flex: 1;
     margin-left: 250px;
     padding: 20px;
 }
 
-/* Top Navigation */
+/* Top navigation bar with search and profile */
 .top-nav {
     display: flex;
     justify-content: space-between;
@@ -83,6 +88,33 @@ body {
     margin-bottom: 30px;
 }
 
+/* Navigation links in top bar */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #056439;
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #024427;
+}
+
+.nav-link i {
+    font-size: 18px;
+}
+
+/* Search bar styling */
 .search-bar {
     display: flex;
     align-items: center;
@@ -116,6 +148,7 @@ body {
     background-color: #024427;
 }
 
+/* User profile area */
 .user-profile {
     display: flex;
     align-items: center;
@@ -135,7 +168,7 @@ body {
     object-fit: cover;
 }
 
-/* Dashboard Content */
+/* Dashboard content area */
 .dashboard-content {
     padding: 20px;
 }
@@ -146,7 +179,7 @@ body {
     font-size: 28px;
 }
 
-/* Stats Grid */
+/* Statistics cards */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -184,7 +217,7 @@ body {
     color: #056439;
 }
 
-/* Analytics Section */
+/* Analytics section with charts */
 .analytics-section {
     margin-bottom: 30px;
 }
@@ -214,7 +247,7 @@ body {
     font-size: 18px;
 }
 
-/* Detailed Analytics */
+/* Detailed analytics cards */
 .detailed-analytics {
     margin-bottom: 30px;
 }
@@ -238,7 +271,7 @@ body {
     font-size: 18px;
 }
 
-/* Medication List */
+/* Medication list styling */
 .medication-list {
     display: flex;
     flex-direction: column;
@@ -263,7 +296,7 @@ body {
     font-weight: 600;
 }
 
-/* Prescription List */
+/* Prescription list styling */
 .prescription-list {
     display: flex;
     flex-direction: column;
@@ -301,14 +334,15 @@ body {
 }
 
 .pres-status:not(:empty) {
-    background-color: #e8f5e9;
+    background-color: #e6f4ea;
     color: #056439;
 }
 
-/* Quick Actions */
+/* Quick action buttons */
 .quick-actions {
-    background-color: white;
+    margin-top: 30px;
     padding: 20px;
+    background-color: white;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
@@ -321,54 +355,54 @@ body {
 
 .action-buttons {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 .action-btn {
-    background-color: #056439;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
     display: flex;
     align-items: center;
     gap: 10px;
+    padding: 12px 20px;
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 8px;
+    color: #056439;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .action-btn:hover {
-    background-color: #024427;
+    background-color: #e6f4ea;
 }
 
 .action-btn i {
-    font-size: 16px;
+    font-size: 18px;
 }
 
-/* Responsive Design */
+/* Responsive design for tablets */
 @media (max-width: 1200px) {
     .analytics-grid {
         grid-template-columns: 1fr;
     }
 }
 
+/* Responsive design for mobile devices */
 @media (max-width: 768px) {
     .sidebar {
         width: 70px;
         padding: 20px 10px;
     }
-
+    
     .sidebar-nav a span {
         display: none;
     }
-
+    
     .main-content {
         margin-left: 70px;
     }
-
+    
     .analytics-row {
         grid-template-columns: 1fr;
     }
