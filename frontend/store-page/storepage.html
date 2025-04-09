@@ -5,143 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pharmacy Store</title>
     <link rel="stylesheet" href="storepage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
-<header class="navbar">
-    <div class="nav-container">
-        <div class="logo">
-            <img src="../../images/Nieuwe logo.png" alt="Apothecare Logo" />
-        </div>
-
-        <nav class="main-nav">
-            <div class="nav-left">
-                <a href="../home-page/home.html">Home</a>
-                <a href="storepage.html">Store</a>
-            </div>
-
-            <div class="search-bar">
-                <input type="text" placeholder="Search..." />
-                <button type="submit">Search</button>
-            </div>
-            <div class="nav-right" id="userNav"></div>
-
-            <div class="nav-right" id="userNav">
-                <button class="cart-button">
-                    <i class="ri-shopping-cart-line"></i> <span id="cart-count">0</span>
-                </button>
-
-                <!-- Cart Dropdown -->
-                <div id="cart-dropdown" class="cart-dropdown">
-                    <div id="cart-items">
-                        <!-- Dynamically generated items will appear here -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../home-page/home.html" class="logo">
+                <img src="../../images/Nieuwe logo.png" alt="Pharmacy Store Logo">
+            </a>
+            <div class="main-nav">
+                <div class="nav-left">
+                    <a href="../home-page/home.html">Home</a>
+                    <a href="storepage.html">Store</a>
+                    <a href="../contact-page/contact.html">Contact</a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products...">
+                    <button type="submit">Search</button>
+                </div>
+                <div class="nav-right">
+                    <button class="cart-button">
+                        <i class="ri-shopping-cart-line"></i>
+                        <span id="cart-count">0</span>
+                    </button>
+                    <div class="cart-dropdown">
+                        <div class="cart-items">
+                            <!-- Cart items will be dynamically added here -->
+                        </div>
+                        <div class="cart-total">
+                            <span>Total:</span>
+                            <span id="cart-total-price">€0.00</span>
+                        </div>
+                        <button class="checkout-button">Checkout</button>
                     </div>
-                    <div id="cart-total">
-                        <strong>Total: </strong><span id="total-price">€0.00</span>
-                    </div>
-                    <div class="cart-empty" id="empty-cart-message" style="display: none;">
-                        Your cart is empty.
-                    </div>
-                    <!-- Add a checkout button -->
-                    <button id="checkout-button" class="checkout-button" style="display: none;">Afrekenen</button>
                 </div>
-
-            </div>
-
-        </nav>
-    </div>
-</header>
-<main>
-    <div class="products-container">
-        <!-- Products Row 1 -->
-        <div class="products-row">
-            <!-- Product 1 -->
-            <div class="product">
-                <div class="product-image">
-                    <img src="../../images/MenosolPro.jpg" alt="Menosol Pro">
-                </div>
-                <p class="product-title">Menusol Pro</p>
-                <p class="product-price">€4,99</p>
-                <button class="add-button">Add</button>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product">
-                <div class="product-image">
-                    <img src="../../images/Bepanthen.jpg" alt="Bepanthen">
-                </div>
-                <p class="product-title">Bepanthen</p>
-                <p class="product-price">€4,99</p>
-                <button class="add-button">Add</button>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product">
-                <div class="product-image">
-                    <img src="../../images/Ibuprofen.jpg" alt="Ibuprofen">
-                </div>
-                <p class="product-title">Ibuprofen</p>
-                <p class="product-price">€4,99</p>
-                <button class="add-button">Add</button>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product">
-                <div class="product-image">
-                    <img src="../../images/VoltarenK.png" alt="Voltaren K">
-                </div>
-                <p class="product-title">Voltaren K</p>
-                <p class="product-price">€4,99</p>
-                <button class="add-button">Add</button>
             </div>
         </div>
+    </nav>
 
-        <!-- Products Row 2 -->
-        <div class="products-row">
-            <!-- Product 5 -->
-            <div class="product">
-                <div class="product-image">
-                    <img src="../../images/Paracetamol.webp" alt="Paracetamol">
+    <main>
+        <div class="products-container">
+            <div class="products-row">
+                <!-- Product 1 -->
+                <div class="product">
+                    <div class="product-image">
+                        <img src="../../images/Paracetamol.webp" alt="Paracetamol">
+                    </div>
+                    <h3 class="product-title">Paracetamol</h3>
+                    <p class="product-price">€5.99</p>
+                    <button class="add-button" data-id="1" data-name="Paracetamol" data-price="5.99">Add</button>
                 </div>
-                <p class="product-title">Paracetamol</p>
-                <p class="product-price">€3,49</p>
-                <button class="add-button">Add</button>
-            </div>
 
-            <!-- Product 6 -->
-            <div class="product">
-                <div class="product-image">
-                    <img src="../../images/Aspirin.png" alt="Aspirin">
+                <!-- Product 2 -->
+                <div class="product">
+                    <div class="product-image">
+                        <img src="../../images/Ibuprofen.jpg" alt="Ibuprofen">
+                    </div>
+                    <h3 class="product-title">Ibuprofen</h3>
+                    <p class="product-price">€7.99</p>
+                    <button class="add-button" data-id="2" data-name="Ibuprofen" data-price="7.99">Add</button>
                 </div>
-                <p class="product-title">Aspirin</p>
-                <p class="product-price">€2,99</p>
-                <button class="add-button">Add</button>
-            </div>
 
-            <!-- Product 7 -->
-            <div class="product">
-                <div class="product-image">
-                    <img src="../../images/Nurofen.jpeg" alt="Nurofen">
+                <!-- Product 3 -->
+                <div class="product">
+                    <div class="product-image">
+                        <img src="../../images/Aspirin.png" alt="Aspirin">
+                    </div>
+                    <h3 class="product-title">Aspirin</h3>
+                    <p class="product-price">€6.99</p>
+                    <button class="add-button" data-id="3" data-name="Aspirin" data-price="6.99">Add</button>
                 </div>
-                <p class="product-title">Nurofen</p>
-                <p class="product-price">€5,49</p>
-                <button class="add-button">Add</button>
-            </div>
 
-            <!-- Product 8 -->
-            <div class="product">
-                <div class="product-image">
-                    <img src="../../images/Vitamin.webp" alt="Vitamin C Tablets">
+                <!-- Product 4 -->
+                <div class="product">
+                    <div class="product-image">
+                        <img src="../../images/Vitamin.webp" alt="Vitamin C">
+                    </div>
+                    <h3 class="product-title">Vitamin C</h3>
+                    <p class="product-price">€9.99</p>
+                    <button class="add-button" data-id="4" data-name="Vitamin C" data-price="9.99">Add</button>
                 </div>
-                <p class="product-title">Vitamin C Tablets</p>
-                <p class="product-price">€6,99</p>
-                <button class="add-button">Add</button>
+                
+                <!-- Product 5 -->
+                <div class="product">
+                    <div class="product-image">
+                        <img src="../../images/VoltarenK.png" alt="Voltaren">
+                    </div>
+                    <h3 class="product-title">Voltaren</h3>
+                    <p class="product-price">€12.99</p>
+                    <button class="add-button" data-id="5" data-name="Voltaren" data-price="12.99">Add</button>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product">
+                    <div class="product-image">
+                        <img src="../../images/MenosolPro.jpg" alt="Menosol Pro">
+                    </div>
+                    <h3 class="product-title">Menosol Pro</h3>
+                    <p class="product-price">€14.99</p>
+                    <button class="add-button" data-id="6" data-name="Menosol Pro" data-price="14.99">Add</button>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product">
+                    <div class="product-image">
+                        <img src="../../images/Nurofen.jpeg" alt="Nurofen">
+                    </div>
+                    <h3 class="product-title">Nurofen</h3>
+                    <p class="product-price">€8.99</p>
+                    <button class="add-button" data-id="7" data-name="Nurofen" data-price="8.99">Add</button>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product">
+                    <div class="product-image">
+                        <img src="../../images/Bepanthen.jpg" alt="Bepanthen">
+                    </div>
+                    <h3 class="product-title">Bepanthen</h3>
+                    <p class="product-price">€11.99</p>
+                    <button class="add-button" data-id="8" data-name="Bepanthen" data-price="11.99">Add</button>
+                </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
-<script src="storepage.js"></script>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="ri-heart-pulse-line"></i>
+                    <span>Pharmacy Store</span>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../home-page/home.html">Home</a></li>
+                        <li><a href="storepage.html#products">Products</a></li>
+                        <li><a href="../contact-page/contact.html">Contact</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="ri-map-pin-line"></i> Groen van Prinsterersingel 52, 2805 TE Gouda</li>
+                        <li><i class="ri-phone-line"></i> 06 12345678</li>
+                        <li><i class="ri-mail-line"></i> apothecare@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Pharmacy Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
+    <script src="storepage.js"></script>
 </body>
 </html>

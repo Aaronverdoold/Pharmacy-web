@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="dashboard-container">
-        <!-- Sidebar -->
+        <!-- Navigation Menu -->
         <aside class="sidebar">
             <div class="logo">
                 <img src="../../images/Nieuwe logo.png" alt="Pharmacy Logo">
@@ -26,10 +26,13 @@
             </nav>
         </aside>
 
-        <!-- Main Content -->
+        <!-- Main Dashboard Area -->
         <main class="main-content">
-            <!-- Top Navigation -->
+            <!-- Search and Profile Bar -->
             <nav class="top-nav">
+                <div class="nav-links">
+                    <a href="../home-page/home.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                </div>
                 <div class="search-bar">
                     <input type="text" placeholder="Search...">
                     <button><i class="fas fa-search"></i></button>
@@ -40,12 +43,12 @@
                 </div>
             </nav>
 
-            <!-- Dashboard Content -->
+            <!-- Dashboard Overview -->
             <div class="dashboard-content">
                 <section id="overview">
                     <h1>Dashboard Overview</h1>
                     
-                    <!-- Stats Cards -->
+                    <!-- Key Statistics -->
                     <div class="stats-grid">
                         <div class="stat-card">
                             <i class="fas fa-pills"></i>
@@ -78,26 +81,22 @@
                     </div>
                 </section>
 
-                <!-- Analytics Section -->
+                <!-- Business Analytics -->
                 <section id="analytics" class="analytics-section">
                     <h2>Analytics Overview</h2>
                     <div class="analytics-grid">
-                        <!-- Sales Chart -->
                         <div class="chart-card">
                             <h3>Sales Overview</h3>
                             <canvas id="salesChart"></canvas>
                         </div>
-                        <!-- Patient Growth -->
                         <div class="chart-card">
                             <h3>Patient Growth</h3>
                             <canvas id="patientChart"></canvas>
                         </div>
-                        <!-- Medication Distribution -->
                         <div class="chart-card">
                             <h3>Medication Distribution</h3>
                             <canvas id="medicationChart"></canvas>
                         </div>
-                        <!-- Prescription Trends -->
                         <div class="chart-card">
                             <h3>Prescription Trends</h3>
                             <canvas id="prescriptionChart"></canvas>
@@ -105,10 +104,9 @@
                     </div>
                 </section>
 
-                <!-- Detailed Analytics -->
+                <!-- Recent Activity -->
                 <div class="detailed-analytics">
                     <div class="analytics-row">
-                        <!-- Top Medications -->
                         <div class="analytics-card">
                             <h3>Top Medications</h3>
                             <div class="medication-list">
@@ -126,7 +124,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Recent Prescriptions -->
                         <div class="analytics-card">
                             <h3>Recent Prescriptions</h3>
                             <div class="prescription-list">

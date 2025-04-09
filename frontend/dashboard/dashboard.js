@@ -1,22 +1,20 @@
-// Wait for the DOM to be fully loaded
+// Initialize dashboard when page loads
 document.addEventListener('DOMContentLoaded', function() {
-    // Handle sidebar navigation active state and smooth scrolling
+    // Handle menu navigation and smooth scrolling
     const navLinks = document.querySelectorAll('.sidebar-nav a');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Remove active class from all links
+            // Update active menu item
             navLinks.forEach(l => l.classList.remove('active'));
-            // Add active class to clicked link
             this.classList.add('active');
             
-            // Get the target section id from the href
+            // Smooth scroll to selected section
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
             
             if (targetSection) {
-                // Smooth scroll to the target section
                 targetSection.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
@@ -25,14 +23,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Handle search functionality
+    // Search functionality
     const searchInput = document.querySelector('.search-bar input');
     const searchButton = document.querySelector('.search-bar button');
 
     searchButton.addEventListener('click', function() {
         const searchTerm = searchInput.value.trim();
         if (searchTerm) {
-            // TODO: Implement search functionality
+            // TODO: Implement search functionality not implemented yet
             console.log('Searching for:', searchTerm);
         }
     });
@@ -41,26 +39,25 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'Enter') {
             const searchTerm = this.value.trim();
             if (searchTerm) {
-                // TODO: Implement search functionality
+                // TODO: Implement search functionality not implemented yet
                 console.log('Searching for:', searchTerm);
             }
         }
     });
 
-    // Handle notification click
+    // Notification system. this thing can be removed.
     const notificationBell = document.querySelector('.notifications');
     notificationBell.addEventListener('click', function() {
-        // TODO: Implement notifications panel
         console.log('Notifications clicked');
     });
 
-    // Initialize Charts
+    // Initialize dashboard charts
     initializeCharts();
 });
 
-// Chart Initialization
+// Create and configure dashboard charts
 function initializeCharts() {
-    // Sales Chart
+    // Sales performance chart
     const salesCtx = document.getElementById('salesChart').getContext('2d');
     new Chart(salesCtx, {
         type: 'line',
@@ -99,7 +96,7 @@ function initializeCharts() {
         }
     });
 
-    // Patient Growth Chart
+    // Patient growth chart
     const patientCtx = document.getElementById('patientChart').getContext('2d');
     new Chart(patientCtx, {
         type: 'bar',
@@ -136,7 +133,7 @@ function initializeCharts() {
         }
     });
 
-    // Medication Distribution Chart
+    // Medication distribution chart
     const medicationCtx = document.getElementById('medicationChart').getContext('2d');
     new Chart(medicationCtx, {
         type: 'doughnut',
@@ -162,7 +159,7 @@ function initializeCharts() {
         }
     });
 
-    // Prescription Trends Chart
+    // Prescription trends chart
     const prescriptionCtx = document.getElementById('prescriptionChart').getContext('2d');
     new Chart(prescriptionCtx, {
         type: 'line',

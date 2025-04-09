@@ -1,109 +1,101 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     const cartButton = document.querySelector('.cart-button');
-    const cartDropdown = document.getElementById('cart-dropdown');
-
+    const cartDropdown = document.querySelector('.cart-dropdown');
+    const cartItemsContainer = document.querySelector('.cart-items');
+    const cartCountSpan = document.querySelector('.cart-button span');
+    const cartTotal = document.querySelector('.cart-total span');
     let cart = [];
 
-    // Update de cart dropdown
-    function updateCartDropdown() {
-        const cartDropdown = document.getElementById('cart-dropdown');
-        const cartItemsContainer = document.getElementById('cart-items');
-        const cartCount = document.getElementById('cart-count');
-        const totalPriceElement = document.getElementById('total-price');
-        const emptyCartMessage = document.getElementById('empty-cart-message');
-        const checkoutButton = document.getElementById('checkout-button');
-
-        // Clear existing items in the dropdown
-        cartItemsContainer.innerHTML = '';
-
-        // Calculate total price and display products
-        let totalPrice = 0;
-        cart.forEach(item => {
-            const { title, price, quantity, image } = item;
-
-            // Create product item element
-            const productItem = document.createElement('div');
-            productItem.classList.add('cart-item');
-
-            productItem.innerHTML = `
-            <img src="${image}" alt="${title}">
-            <span>${title} x ${quantity}</span>
-            <span>€${(price * quantity).toFixed(2)}</span>
-            <i class="ri-close-line close-icon" data-title="${title}"></i>
-        `;
-
-            // Append to the dropdown
-            cartItemsContainer.appendChild(productItem);
-
-            // Update total price
-            totalPrice += price * quantity;
-        });
-
-        // Update the total price in the dropdown
-        totalPriceElement.textContent = `€${totalPrice.toFixed(2)}`;
-
-        // Update cart count
-        cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
-
-        // Show the cart dropdown if there are items
-        cartDropdown.style.display = cart.length > 0 ? 'block' : 'none';
-
-        // Show the empty cart message if there are no items
-        emptyCartMessage.style.display = cart.length === 0 ? 'block' : 'none';
-
-        // Show the checkout button if there are items in the cart
-        checkoutButton.style.display = cart.length > 0 ? 'block' : 'none';
-    }
-
-// Function to handle checkout button click
-    document.getElementById('checkout-button').addEventListener('click', function () {
-        // For now, just log to console or redirect to another page
-        alert("You are being redirected to the checkout page.");
-        // Uncomment below to redirect to a checkout page
-        // window.location.href = "checkout-page.html"; // Replace with your actual checkout page URL
+    // Show/hide cart dropdown when clicking the cart button
+    cartButton.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent closing when clicking the cart button
+        cartDropdown.classList.toggle('show');
     });
 
-
-    // Function to handle adding items to the cart
-    function addToCart(title, price, image) {
-        const existingProductIndex = cart.findIndex(item => item.title === title);
-        if (existingProductIndex !== -1) {
-            cart[existingProductIndex].quantity += 1;
-        } else {
-            cart.push({ title, price, image, quantity: 1 });
-        }
-        updateCartDropdown();
-    }
-
-    // Function to handle removing items from the cart
-    function removeFromCart(title) {
-        cart = cart.filter(item => item.title !== title);
-        updateCartDropdown();
-    }
-
-    // Toggle the cart dropdown when cart button is clicked
-    cartButton.addEventListener('click', () => {
-        cartDropdown.style.display = cartDropdown.style.display === 'block' ? 'none' : 'block';
-    });
-
-    // Remove item from cart when close icon is clicked
+    // Prevent clicks inside the cart dropdown from closing it
     cartDropdown.addEventListener('click', (event) => {
-        if (event.target.classList.contains('close-icon')) {
-            const title = event.target.getAttribute('data-title');
-            removeFromCart(title);
-        }
+        event.stopPropagation();
     });
 
-    // Add event listeners for the "Add" buttons of products
-    const addButtons = document.querySelectorAll('.add-button');
-    addButtons.forEach(button => {
-        button.addEventListener('click', (event) => {
-            const productDiv = event.target.closest('.product');
-            const title = productDiv.querySelector('.product-title').textContent;
-            const price = parseFloat(productDiv.querySelector('.product-price').textContent.replace('€', ''));
-            const image = productDiv.querySelector('.product-image img').src;
+    // Close the cart dropdown when clicking outside
+    document.addEventListener('click', () => {
+        cartDropdown.classList.remove('show');
+    });
 
-            addToCart(title, price, image);
+    // Handle adding products to cart
+    document.querySelectorAll('.add-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const product = button.closest('.product');
+            const title = product.querySelector('.product-title').textContent;
+            const price = parseFloat(product.querySelector('.product-price').textContent.replace('€', '').trim());
+            const imageSrc = product.querySelector('.product-image img').src;
+
+            const existingItem = cart.find(item => item.title === title);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ title, price, imageSrc, quantity: 1 });
+            }
+
+            updateCart();
+            cartButton.classList.add('pulse');
+            setTimeout(() => cartButton.classList.remove('pulse'), 500);
         });
     });
+
+    // Update cart display
+    function updateCart() {
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<div class="cart-empty">Je winkelwagen is leeg.</div>';
+        } else {
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <img class="cart-item-image" src="${item.imageSrc}" alt="${item.title}">
+                    <div class="cart-item-details">
+                        <h4>${item.title}</h4>
+                        <div class="cart-item-price">€${item.price.toFixed(2)}</div>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn decrease">-</button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="quantity-btn increase">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-item" title="Verwijderen">×</button>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+
+                // Increase quantity
+                cartItem.querySelector('.increase').addEventListener('click', () => {
+                    item.quantity++;
+                    updateCart();
+                });
+
+                // Decrease quantity
+                cartItem.querySelector('.decrease').addEventListener('click', () => {
+                    if (item.quantity > 1) {
+                        item.quantity--;
+                    } else {
+                        cart.splice(index, 1);
+                    }
+                    updateCart();
+                });
+
+                // Remove item
+                cartItem.querySelector('.remove-item').addEventListener('click', () => {
+                    cart.splice(index, 1);
+                    updateCart();
+                });
+            });
+        }
+
+        cartTotal.textContent = `€${total.toFixed(2)}`;
+        cartCountSpan.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+    }
 });
