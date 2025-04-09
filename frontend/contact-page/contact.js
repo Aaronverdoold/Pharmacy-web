@@ -92,6 +92,32 @@ function updateStarIcons() {
 
 // Feedback Form Submission
 const feedbackForm = document.getElementById('feedbackForm');
+const purchaseList = document.querySelector('.purchase-list');
+
+// Function to get product image based on keywords
+function getProductImage(feedback) {
+    const feedbackLower = feedback.toLowerCase();
+    if (feedbackLower.includes('paracetamol') || feedbackLower.includes('pain') || feedbackLower.includes('headache')) {
+        return '../../images/Paracetamol.webp';
+    } else if (feedbackLower.includes('vitamin') || feedbackLower.includes('vitamine') || feedbackLower.includes('immune')) {
+        return '../../images/Vitamin.webp';
+    } else if (feedbackLower.includes('ibuprofen') || feedbackLower.includes('inflammation')) {
+        return '../../images/Ibuprofen.jpg';
+    } else if (feedbackLower.includes('aspirin') || feedbackLower.includes('heart')) {
+        return '../../images/Aspirin.png';
+    } else if (feedbackLower.includes('nurofen') || feedbackLower.includes('fever')) {
+        return '../../images/Nurofen.jpeg';
+    } else if (feedbackLower.includes('bepanthen') || feedbackLower.includes('skin')) {
+        return '../../images/Bepanthen.jpg';
+    } else if (feedbackLower.includes('menosol') || feedbackLower.includes('menopause')) {
+        return '../../images/MenosolPro.jpg';
+    } else if (feedbackLower.includes('voltaren') || feedbackLower.includes('joint')) {
+        return '../../images/VoltarenK.png';
+    } else {
+        // Default image if no keyword matches
+        return '../../images/pillen.jpg';
+    }
+}
 
 feedbackForm.addEventListener('submit', function(e) {
     e.preventDefault();
@@ -104,14 +130,49 @@ feedbackForm.addEventListener('submit', function(e) {
         return;
     }
     
-    // Here you would typically send the feedback to your backend
-    // For now, we'll just show a success message
-    showNotification('Thank you for your feedback!', 'success');
+    // Get appropriate product image based on feedback keywords
+    const productImage = getProductImage(feedback);
+    
+    // Create new purchase item
+    const newPurchase = document.createElement('div');
+    newPurchase.className = 'purchase-item';
+    newPurchase.innerHTML = `
+        <div class="purchase-header">
+            <span class="purchase-date">${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            <span class="purchase-status">Delivered</span>
+            <button class="delete-purchase"><i class="ri-close-line"></i></button>
+        </div>
+        <div class="purchase-details">
+            <img src="${productImage}" alt="Product" class="product-image">
+            <div class="product-info">
+                <h4>Order #${orderNumber}</h4>
+                <p class="product-description">${feedback}</p>
+                <div class="product-meta">
+                    <span class="rating">Rating: ${selectedRating}/5</span>
+                </div>
+            </div>
+        </div>
+        <div class="feedback-response">
+            <p class="response-text">Thank you for your feedback! We appreciate your input and will use it to improve our services.</p>
+        </div>
+    `;
+
+    // Add delete button functionality
+    const deleteButton = newPurchase.querySelector('.delete-purchase');
+    deleteButton.addEventListener('click', function() {
+        newPurchase.remove();
+        showNotification('Purchase removed successfully', 'success');
+    });
+
+    // Add the new purchase to the top of the list
+    purchaseList.insertBefore(newPurchase, purchaseList.firstChild);
     
     // Reset form
     feedbackForm.reset();
     selectedRating = 0;
     updateStarIcons();
+    
+    showNotification('Thank you for your feedback!', 'success');
 });
 
 // Initialize star icons

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Apothecare</title>
   <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="chatbot.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
@@ -13,7 +14,7 @@
   <header class="navbar">
     <div class="nav-container">
       <div class="logo">
-        <img src="../../images/Nieuwe logo.png" alt="Apothecare Logo" />
+        <a href="home.html"><img src="../../images/Nieuwe logo.png" alt="Apothecare Logo" /></a>
       </div>
 
       <nav class="main-nav">
@@ -21,11 +22,6 @@
           <a href="home.html">Home</a>
           <a href="../store-page/storepage.html">Store</a>
           <a href="../contact-page/contact.html">Contact</a>
-        </div>
-
-        <div class="search-bar">
-          <input type="text" placeholder="Search..." />
-          <button type="submit">Search</button>
         </div>
 
         <div class="nav-right" id="userNav">
@@ -51,9 +47,13 @@
   <footer>
     <div class="container">
       <div class="footer-content">
-        <div class="footer-logo">
-          <i class="ri-heart-pulse-line"></i>
-          <span>Pharmacy Store</span>
+        <div class="footer-links">
+          <h3>Opening Hours</h3>
+          <ul>
+            <li><i class="ri-time-line"></i> Monday - Friday: 9:00 AM - 8:00 PM</li>
+            <li><i class="ri-time-line"></i> Saturday: 9:00 AM - 6:00 PM</li>
+            <li><i class="ri-time-line"></i> Sunday: 10:00 AM - 4:00 PM</li>
+          </ul>
         </div>
         <div class="footer-links">
           <h3>Quick Links</h3>
@@ -74,11 +74,31 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 Pharmacy Store. All rights reserved.</p>
+        <p>&copy; 2025 Apothecare. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <script src="home.js"></script>
+
+  <!-- Chatbot Panel -->
+  <div class="chatbot-panel">
+    <div class="chatbot-toggle">
+      <i class="ri-message-3-line"></i>
+    </div>
+    <div class="chatbot-content">
+      <div class="chatbot-header">
+        <h3>Chat with us</h3>
+        <button class="close-chatbot"><i class="ri-close-line"></i></button>
+      </div>
+      <div class="chatbot-messages">
+        <!-- Messages will appear here -->
+      </div>
+      <div class="chatbot-input">
+        <input type="text" placeholder="Type your message...">
+        <button><i class="ri-send-plane-fill"></i></button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
