@@ -20,92 +20,170 @@ body {
 
 /* Header Styles */
 .navbar {
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background-color: #024427;
+    padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
-    padding: 15px 40px;
-    max-width: 1400px;
+    align-items: center;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    position: relative;
+    padding: 10px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid white;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
 }
 
 .logo img {
-    width: 140px;
-    height: auto;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(2, 68, 39, 0.5));
 }
 
-/* Nav layout */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 .main-nav {
     display: flex;
     align-items: center;
-    gap: 30px;
-    flex-grow: 1;
-    justify-content: flex-end;
-    flex-wrap: wrap;
+    gap: 2rem;
 }
 
-.nav-left,
-.nav-right {
+.nav-left {
     display: flex;
-    gap: 20px;
-    align-items: center;
+    gap: 2rem;
 }
 
-.nav-left a,
-.nav-right a {
-    text-decoration: none;
-    color: #056439;
-    font-weight: 600;
-    font-size: 18px;
-    padding: 8px 14px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.nav-left a:hover,
-.nav-right a:hover {
-    background-color: #056439;
+.nav-left a {
     color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
 }
 
-/* Search bar */
+.nav-left a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.nav-left a:hover::after {
+    width: 100%;
+}
+
 .search-bar {
     display: flex;
     align-items: center;
-    background-color: #eeeeee;
-    padding: 6px 12px;
-    border-radius: 30px;
-    gap: 8px;
+    background: white;
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .search-bar input {
     border: none;
-    background: transparent;
     outline: none;
-    font-size: 14px;
-    padding: 6px;
-    width: 160px;
+    padding: 0.5rem;
+    width: 200px;
+    background: transparent;
 }
 
 .search-bar button {
-    background-color: #056439;
+    background: #024427;
     color: white;
     border: none;
-    padding: 6px 16px;
+    padding: 0.5rem 1rem;
     border-radius: 20px;
-    font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .search-bar button:hover {
-    background-color: #024427;
+    background: #01311a;
+}
+
+.nav-right {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.nav-right a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.nav-right a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.nav-right a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-right a:hover::after {
+    width: 100%;
 }
 
 /* Contact Section */
@@ -305,6 +383,7 @@ body {
 .purchase-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 15px;
     padding-bottom: 10px;
     border-bottom: 1px solid #eee;
@@ -513,4 +592,23 @@ footer {
     .nav-left {
         display: none;
     }
+}
+
+.delete-purchase {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.delete-purchase:hover {
+    background-color: #f8d7da;
+    transform: scale(1.1);
+}
+
+.delete-purchase i {
+    font-size: 1.2rem;
 } 

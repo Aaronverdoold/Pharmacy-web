@@ -14,93 +14,170 @@ body {
 
   /* ===== Navbar Styling ===== */
   .navbar {
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background-color: #024427;
+    padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
   
   .nav-container {
     display: flex;
     justify-content: space-between;
-    padding: 15px 40px;
-    max-width: 1400px;
+    align-items: center;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .logo {
+    position: relative;
+    padding: 10px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .logo:hover {
+    transform: scale(1.1);
+  }
+  
+  .logo::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid white;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
   }
   
   .logo img {
-    width: 140px;
-    height: auto;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(2, 68, 39, 0.5));
   }
   
-  /* Nav layout */
+  @keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+  }
+  
   .main-nav {
     display: flex;
     align-items: center;
-    gap: 30px;
-    flex-grow: 1;
-    justify-content: flex-end;
-    flex-wrap: wrap;
+    gap: 2rem;
   }
   
-  .nav-left,
-  .nav-right {
+  .nav-left {
     display: flex;
-    gap: 20px;
-    align-items: center;
-    position: relative;
-}
-
-.nav-left a,
-.nav-right a {
-    text-decoration: none;
-    color: #056439;
-    font-weight: 600;
-    font-size: 18px;
-    padding: 8px 14px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    gap: 2rem;
   }
   
-  .nav-left a:hover,
-  .nav-right a:hover {
-    background-color: #056439;
+  .nav-left a {
     color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
   }
   
-  /* Search bar */
+  .nav-left a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-left a:hover::after {
+    width: 100%;
+  }
+  
   .search-bar {
     display: flex;
     align-items: center;
-    background-color: #eeeeee;
-    padding: 6px 12px;
-    border-radius: 30px;
-    gap: 8px;
+    background: white;
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
   .search-bar input {
     border: none;
-    background: transparent;
     outline: none;
-    font-size: 14px;
-    padding: 6px;
-    width: 160px;
+    padding: 0.5rem;
+    width: 200px;
+    background: transparent;
   }
   
   .search-bar button {
-    background-color: #056439;
+    background: #024427;
     color: white;
     border: none;
-    padding: 6px 16px;
+    padding: 0.5rem 1rem;
     border-radius: 20px;
-    font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   
   .search-bar button:hover {
-    background-color: #024427;
+    background: #01311a;
+  }
+  
+  .nav-right {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .nav-right a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+  }
+  
+  .nav-right a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-right a:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .nav-right a:hover::after {
+    width: 100%;
   }
 
 /* Shopping Cart Dropdown */
@@ -266,12 +343,13 @@ body {
 }
 
 .cart-button:hover {
-    background: #f5f5f5;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .cart-button i {
     font-size: 24px;
-    color: #056439;
+    color: white;
+    content: "\f07a"; /* Font Awesome shopping cart icon */
 }
 
 .cart-button span {
@@ -533,4 +611,231 @@ footer {
     text-align: center;
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Checkout Popup Styles */
+.checkout-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.checkout-popup.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout-content {
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.checkout-header {
+    background-color: #056439;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkout-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.close-checkout {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.checkout-body {
+    padding: 20px;
+}
+
+.payment-form {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: 500;
+}
+
+.card-input {
+    position: relative;
+}
+
+.card-input input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.card-input i {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.payment-total {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.pay-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #056439;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pay-button:hover {
+    background-color: #045030;
+}
+
+.payment-security {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+
+.payment-security i {
+    font-size: 2rem;
+    color: #056439;
+    margin-bottom: 10px;
+}
+
+.payment-security span {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.payment-security p {
+    color: #666;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Payment Method Selector */
+.payment-method-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.payment-method {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payment-method i {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.payment-method span {
+    font-weight: 500;
+    color: #333;
+}
+
+.payment-method.active {
+    background: #056439;
+    border-color: #056439;
+}
+
+.payment-method.active i,
+.payment-method.active span {
+    color: white;
+}
+
+.payment-method:hover:not(.active) {
+    background: #f0f0f0;
+    border-color: #ccc;
+}
+
+/* iDEAL Form Styles */
+#bankSelect {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+#bankSelect:focus {
+    outline: none;
+    border-color: #056439;
+}
+
+#bankSelect option {
+    padding: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .payment-method-selector {
+        flex-direction: column;
+    }
+    
+    .payment-method {
+        width: 100%;
+    }
 }

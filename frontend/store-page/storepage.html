@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="storepage.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../shared/chatbot.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="../home-page/home.html" class="logo">
-                <img src="../../images/Nieuwe logo.png" alt="Pharmacy Store Logo">
-            </a>
+            <div class="logo">
+                <a href="../home-page/home.html"><img src="../../images/Nieuwe logo.png" alt="Pharmacy Store Logo"></a>
+            </div>
             <div class="main-nav">
                 <div class="nav-left">
                     <a href="../home-page/home.html">Home</a>
@@ -133,9 +134,13 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="ri-heart-pulse-line"></i>
-                    <span>Pharmacy Store</span>
+                <div class="footer-links">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li><i class="ri-time-line"></i> Monday - Friday: 9:00 AM - 8:00 PM</li>
+                        <li><i class="ri-time-line"></i> Saturday: 9:00 AM - 6:00 PM</li>
+                        <li><i class="ri-time-line"></i> Sunday: 10:00 AM - 4:00 PM</li>
+                    </ul>
                 </div>
                 <div class="footer-links">
                     <h3>Quick Links</h3>
@@ -156,11 +161,104 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Pharmacy Store. All rights reserved.</p>
+                <p>&copy; 2025 Apothecare. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="storepage.js"></script>
+    <script src="../shared/chatbot.js"></script>
+
+    <!-- Checkout Popup -->
+    <div class="checkout-popup" id="checkoutPopup">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h2>Secure Payment</h2>
+                <button class="close-checkout"><i class="ri-close-line"></i></button>
+            </div>
+            <div class="checkout-body">
+                <div class="payment-method-selector">
+                    <button class="payment-method active" data-method="card">
+                        <i class="ri-bank-card-line"></i>
+                        <span>Credit/Debit Card</span>
+                    </button>
+                    <button class="payment-method" data-method="ideal">
+                        <i class="ri-bank-line"></i>
+                        <span>iDEAL</span>
+                    </button>
+                </div>
+                <div class="payment-form" id="cardPayment">
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <div class="card-input">
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                            <i class="ri-bank-card-line"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiryDate">Expiry Date</label>
+                            <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" placeholder="123" maxlength="3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardName">Name on Card</label>
+                        <input type="text" id="cardName" placeholder="John Doe">
+                    </div>
+                </div>
+                <div class="payment-form" id="idealPayment" style="display: none;">
+                    <div class="form-group">
+                        <label for="bankSelect">Select Your Bank</label>
+                        <select id="bankSelect">
+                            <option value="">Choose your bank</option>
+                            <option value="ABN">ABN AMRO</option>
+                            <option value="ING">ING Bank</option>
+                            <option value="RABO">Rabobank</option>
+                            <option value="SNS">SNS Bank</option>
+                            <option value="ASN">ASN Bank</option>
+                            <option value="BUNQ">bunq</option>
+                            <option value="KNAB">Knab</option>
+                            <option value="REVOLUT">Revolut</option>
+                            <option value="TRIODOS">Triodos Bank</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="payment-total">
+                    <span>Total Amount:</span>
+                    <span id="payment-total">€0.00</span>
+                </div>
+                <button class="pay-button">Pay Now</button>
+                <div class="payment-security">
+                    <i class="ri-shield-check-line"></i>
+                    <span>Secure Payment</span>
+                    <p>Your payment information is encrypted and secure</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot Panel -->
+    <div class="chatbot-panel">
+      <div class="chatbot-toggle">
+        <i class="ri-message-3-line"></i>
+      </div>
+      <div class="chatbot-content">
+        <div class="chatbot-header">
+          <h3>Chat with us</h3>
+          <button class="close-chatbot"><i class="ri-close-line"></i></button>
+        </div>
+        <div class="chatbot-messages">
+          <!-- Messages will appear here -->
+        </div>
+        <div class="chatbot-input">
+          <input type="text" placeholder="Type your message...">
+          <button><i class="ri-send-plane-fill"></i></button>
+        </div>
+      </div>
+    </div>
 </body>
 </html>
