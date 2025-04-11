@@ -1,236 +1,236 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Pharmacy Store</title>
+    <title>Contact - Apotheek Winkel</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="contact.css">
     <link rel="stylesheet" href="../shared/chatbot.css">
 </head>
 <body>
-    <header class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <a href="../home-page/home.html"><img src="../../images/Nieuwe logo.png" alt="Apothecare Logo" /></a>
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <a href="../home-page/home.html"><img src="../../images/Nieuwe logo.png" alt="Apothecare Logo" /></a>
+        </div>
+
+        <nav class="main-nav">
+            <div class="nav-left">
+                <a href="../home-page/home.html">Home</a>
+                <a href="../store-page/storepage.html">Winkel</a>
+                <a href="contact.html">Contact</a>
             </div>
 
-            <nav class="main-nav">
-                <div class="nav-left">
-                    <a href="../home-page/home.html">Home</a>
-                    <a href="../store-page/storepage.html">Store</a>
-                    <a href="contact.html">Contact</a>
-                </div>
+            <div class="nav-right" id="userNav">
+                <!-- Wordt door JS ingevuld (inloggen/registreren of profiel) -->
+            </div>
+        </nav>
+    </div>
+</header>
 
-                <div class="nav-right" id="userNav">
-                    <!-- Populated by JS (login/signup or profile) -->
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="contact-section">
-            <div class="container">
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <h2>Get in Touch</h2>
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <i class="ri-map-pin-line"></i>
-                                <div>
-                                    <h3>Address</h3>
-                                    <p>Groen van Prinsterersingel 52, 2805 TE Gouda</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="ri-phone-line"></i>
-                                <div>
-                                    <h3>Phone</h3>
-                                    <p>06 12345678</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="ri-mail-line"></i>
-                                <div>
-                                    <h3>Email</h3>
-                                    <p>apothecare@gmail.com</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <i class="ri-time-line"></i>
-                                <div>
-                                    <h3>Working Hours</h3>
-                                    <p>Monday - Friday: 9:00 AM - 8:00 PM<br>Saturday: 9:00 AM - 6:00 PM<br>Sunday: 10:00 AM - 4:00 PM</p>
-                                </div>
+<main>
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Neem contact op</h2>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="ri-map-pin-line"></i>
+                            <div>
+                                <h3>Adres</h3>
+                                <p>Groen van Prinsterersingel 52, 2805 TE Gouda</p>
                             </div>
                         </div>
-                        <div class="social-links">
-                            <a href="https://www.facebook.com/apothecare" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
-                            <a href="https://www.instagram.com/apothecare" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.linkedin.com/company/apothecare" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://twitter.com/apothecare" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <div class="contact-item">
+                            <i class="ri-phone-line"></i>
+                            <div>
+                                <h3>Telefoon</h3>
+                                <p>06 12345678</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="ri-mail-line"></i>
+                            <div>
+                                <h3>E-mail</h3>
+                                <p>apothecare@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="ri-time-line"></i>
+                            <div>
+                                <h3>Werkuren</h3>
+                                <p>Maandag - Vrijdag: 9:00 - 20:00<br>Zaterdag: 9:00 - 18:00<br>Zondag: 10:00 - 16:00</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="contact-form">
-                        <h2>Send us a Message</h2>
-                        <form id="contactForm">
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/apothecare" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/apothecare" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/apothecare" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://twitter.com/apothecare" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h2>Stuur ons een bericht</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Volledige naam</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mailadres</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Onderwerp</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Bericht</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Verstuur bericht</button>
+                    </form>
+                </div>
+            </div>
+            <div class="feedback-section">
+                <h2>Uw aankoopgeschiedenis & feedback</h2>
+                <div class="feedback-container">
+                    <div class="purchase-history">
+                        <h3>Recente aankopen</h3>
+                        <div class="purchase-list">
+                            <div class="purchase-item">
+                                <div class="purchase-header">
+                                    <span class="purchase-date">15 maart 2024</span>
+                                    <span class="purchase-status">Afgeleverd</span>
+                                </div>
+                                <div class="purchase-details">
+                                    <img src="../../images/Paracetamol.webp" alt="Paracetamol" class="product-image">
+                                    <div class="product-info">
+                                        <h4>Paracetamol 500mg</h4>
+                                        <p class="product-description">Effectieve pijnstiller en koortsverlager. Perfect voor hoofdpijn en milde pijn.</p>
+                                        <div class="product-meta">
+                                            <span class="quantity">Aantal: 2</span>
+                                            <span class="price">€4,99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="feedback-response">
+                                    <p class="response-text">Bedankt voor uw aankoop! We hopen dat dit helpt bij uw pijnverlichting. Volg altijd de aanbevolen doseringsinstructies.</p>
+                                </div>
+                            </div>
+
+                            <div class="purchase-item">
+                                <div class="purchase-header">
+                                    <span class="purchase-date">10 maart 2024</span>
+                                    <span class="purchase-status">Afgeleverd</span>
+                                </div>
+                                <div class="purchase-details">
+                                    <img src="../../images/Vitamin.webp" alt="Vitamine C" class="product-image">
+                                    <div class="product-info">
+                                        <h4>Vitamine C 1000mg</h4>
+                                        <p class="product-description">Hooggedoseerd vitamine C-supplement voor ondersteuning van het immuunsysteem.</p>
+                                        <div class="product-meta">
+                                            <span class="quantity">Aantal: 1</span>
+                                            <span class="price">€12,99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="feedback-response">
+                                    <p class="response-text">Goede keuze voor het versterken van uw immuunsysteem! Vitamine C is essentieel voor de algehele gezondheid. Overweeg het dagelijks in te nemen tijdens het koude seizoen.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feedback-form">
+                        <h3>Deel uw ervaring</h3>
+                        <form id="feedbackForm">
                             <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" name="name" required>
+                                <label for="orderNumber">Bestelnummer</label>
+                                <input type="text" id="orderNumber" name="orderNumber" required>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" required>
+                                <label for="rating">Beoordeling</label>
+                                <div class="rating-stars">
+                                    <i class="ri-star-line" data-rating="1"></i>
+                                    <i class="ri-star-line" data-rating="2"></i>
+                                    <i class="ri-star-line" data-rating="3"></i>
+                                    <i class="ri-star-line" data-rating="4"></i>
+                                    <i class="ri-star-line" data-rating="5"></i>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <input type="text" id="subject" name="subject" required>
+                                <label for="feedback">Uw feedback</label>
+                                <textarea id="feedback" name="feedback" required placeholder="Vertel ons over uw ervaring met het product..."></textarea>
                             </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" required></textarea>
-                            </div>
-                            <button type="submit" class="submit-button">Send Message</button>
+                            <button type="submit" class="submit-button">Feedback versturen</button>
                         </form>
                     </div>
                 </div>
-                <div class="feedback-section">
-                    <h2>Your Purchase History & Feedback</h2>
-                    <div class="feedback-container">
-                        <div class="purchase-history">
-                            <h3>Recent Purchases</h3>
-                            <div class="purchase-list">
-                                <div class="purchase-item">
-                                    <div class="purchase-header">
-                                        <span class="purchase-date">March 15, 2024</span>
-                                        <span class="purchase-status">Delivered</span>
-                                    </div>
-                                    <div class="purchase-details">
-                                        <img src="../../images/Paracetamol.webp" alt="Paracetamol" class="product-image">
-                                        <div class="product-info">
-                                            <h4>Paracetamol 500mg</h4>
-                                            <p class="product-description">Effective pain relief and fever reducer. Perfect for headaches and mild pain.</p>
-                                            <div class="product-meta">
-                                                <span class="quantity">Quantity: 2</span>
-                                                <span class="price">€4.99</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="feedback-response">
-                                        <p class="response-text">Thank you for your purchase! We hope this helps with your pain relief needs. Remember to always follow the recommended dosage instructions.</p>
-                                    </div>
-                                </div>
-
-                                <div class="purchase-item">
-                                    <div class="purchase-header">
-                                        <span class="purchase-date">March 10, 2024</span>
-                                        <span class="purchase-status">Delivered</span>
-                                    </div>
-                                    <div class="purchase-details">
-                                        <img src="../../images/Vitamin.webp" alt="Vitamin C" class="product-image">
-                                        <div class="product-info">
-                                            <h4>Vitamin C 1000mg</h4>
-                                            <p class="product-description">High-strength vitamin C supplement for immune system support.</p>
-                                            <div class="product-meta">
-                                                <span class="quantity">Quantity: 1</span>
-                                                <span class="price">€12.99</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="feedback-response">
-                                        <p class="response-text">Great choice for boosting your immune system! Vitamin C is essential for overall health. Consider taking it daily during cold season.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="feedback-form">
-                            <h3>Share Your Experience</h3>
-                            <form id="feedbackForm">
-                                <div class="form-group">
-                                    <label for="orderNumber">Order Number</label>
-                                    <input type="text" id="orderNumber" name="orderNumber" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="rating">Rating</label>
-                                    <div class="rating-stars">
-                                        <i class="ri-star-line" data-rating="1"></i>
-                                        <i class="ri-star-line" data-rating="2"></i>
-                                        <i class="ri-star-line" data-rating="3"></i>
-                                        <i class="ri-star-line" data-rating="4"></i>
-                                        <i class="ri-star-line" data-rating="5"></i>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="feedback">Your Feedback</label>
-                                    <textarea id="feedback" name="feedback" required placeholder="Tell us about your experience with the product..."></textarea>
-                                </div>
-                                <button type="submit" class="submit-button">Submit Feedback</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <h3>Opening Hours</h3>
-                    <ul>
-                        <li><i class="ri-time-line"></i> Monday - Friday: 9:00 AM - 8:00 PM</li>
-                        <li><i class="ri-time-line"></i> Saturday: 9:00 AM - 6:00 PM</li>
-                        <li><i class="ri-time-line"></i> Sunday: 10:00 AM - 4:00 PM</li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="../home-page/home.html">Home</a></li>
-                        <li><a href="../store-page/storepage.html#products">Products</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#">About Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Contact Info</h3>
-                    <ul>
-                        <li><i class="ri-map-pin-line"></i> Groen van Prinsterersingel 52, 2805 TE Gouda</li>
-                        <li><i class="ri-phone-line"></i> 06 12345678</li>
-                        <li><i class="ri-mail-line"></i> apothecare@gmail.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Apothecare. All rights reserved.</p>
             </div>
         </div>
-    </footer>
+    </section>
+</main>
 
-    <script src="contact.js"></script>
-    <script src="../shared/chatbot.js"></script>
-    <!-- Chatbot Panel -->
-    <div class="chatbot-panel">
-      <div class="chatbot-toggle">
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-links">
+                <h3>Openingstijden</h3>
+                <ul>
+                    <li><i class="ri-time-line"></i> Maandag - Vrijdag: 9:00 - 20:00</li>
+                    <li><i class="ri-time-line"></i> Zaterdag: 9:00 - 18:00</li>
+                    <li><i class="ri-time-line"></i> Zondag: 10:00 - 16:00</li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Snelkoppelingen</h3>
+                <ul>
+                    <li><a href="../home-page/home.html">Home</a></li>
+                    <li><a href="../store-page/storepage.html#products">Producten</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Over ons</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Contactgegevens</h3>
+                <ul>
+                    <li><i class="ri-map-pin-line"></i> Groen van Prinsterersingel 52, 2805 TE Gouda</li>
+                    <li><i class="ri-phone-line"></i> 06 12345678</li>
+                    <li><i class="ri-mail-line"></i> apothecare@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Apothecare. Alle rechten voorbehouden.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="contact.js"></script>
+<script src="../shared/chatbot.js"></script>
+<!-- Chatbot Panel -->
+<div class="chatbot-panel">
+    <div class="chatbot-toggle">
         <i class="ri-message-3-line"></i>
-      </div>
-      <div class="chatbot-content">
+    </div>
+    <div class="chatbot-content">
         <div class="chatbot-header">
-          <h3>Chat with us</h3>
-          <button class="close-chatbot"><i class="ri-close-line"></i></button>
+            <h3>Chat met ons</h3>
+            <button class="close-chatbot"><i class="ri-close-line"></i></button>
         </div>
         <div class="chatbot-messages">
-          <!-- Messages will appear here -->
+            <!-- Berichten verschijnen hier -->
         </div>
         <div class="chatbot-input">
-          <input type="text" placeholder="Type your message...">
-          <button><i class="ri-send-plane-fill"></i></button>
+            <input type="text" placeholder="Typ uw bericht...">
+            <button><i class="ri-send-plane-fill"></i></button>
         </div>
-      </div>
     </div>
+</div>
 </body>
-</html> 
+</html>

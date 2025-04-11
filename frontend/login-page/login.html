@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Login</title>
+    <title>Inloggen</title>
     <link rel="stylesheet" href="login.css" />
 </head>
 <body>
 <div class="container">
     <a href="../home-page/home.html"><img src="../../images/Nieuwe logo.png" alt="Logo quiz" class="logo"></a>
     <form id="loginForm" action="../../backend/login/login.php" method="POST" novalidate>
-        <h1>Login</h1>
+        <h1>Inloggen</h1>
 
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username" required />
+        <label for="username">Gebruikersnaam:</label>
+        <input type="text" id="username" name="username" placeholder="Voer uw gebruikersnaam in" required />
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="Voer uw e-mail in" required />
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required />
+        <label for="password">Wachtwoord:</label>
+        <input type="password" id="password" name="password" placeholder="Voer uw wachtwoord in" required />
 
         <div id="errorBox" class="error-message" style="display:none;"></div>
 
-        <button type="submit">Login</button>
-        <p>Don't have an account? <a href="../sign-up/signup.html" class="login-link">Sign up!</a></p>
+        <button type="submit">Inloggen</button>
+        <p>Heeft u geen account? <a href="../sign-up/signup.html" class="login-link">Registreer!</a></p>
     </form>
 </div>
 
