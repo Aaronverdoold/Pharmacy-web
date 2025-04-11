@@ -34,8 +34,27 @@
                     <a href="../home-page/home.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
                 </div>
                 <div class="user-profile">
-                    <span class="notifications"><i class="fas fa-bell"></i></span>
-                    <img src="../../images/R-removebg-preview.png" alt="Profile" class="profile-img">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">2</span>
+                        <div class="notification-dropdown">
+                            <div class="notification-header">
+                                <h3>Notifications</h3>
+                                <button class="clear-all">Clear All</button>
+                            </div>
+                            <div class="notification-list">
+                                <!-- Notifications will be added here dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-dropdown">
+                        <img src="../../images/R-removebg-preview.png" alt="Profile" class="profile-img">
+                        <div class="dropdown-content">
+                            <a href="#profile"><i class="fas fa-user"></i> My Profile</a>
+                            <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="../login-page/login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
                 </div>
             </nav>
 
@@ -77,17 +96,22 @@
                     </div>
                 </section>
 
-                <!-- Business Analytics -->
-                <section id="analytics" class="analytics-section">
-                    <h2>Analytics Overview</h2>
-                    <div class="analytics-grid">
-                        <div class="chart-card">
-                            <h3>Sales Overview</h3>
-                            <canvas id="salesChart"></canvas>
-                        </div>
-                        <div class="chart-card">
-                            <h3>Patient Growth</h3>
-                            <canvas id="patientChart"></canvas>
+                <!-- Orders Section -->
+                <section id="orders" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h1>My Orders</h1>
+                        <p class="section-description">View and manage your orders</p>
+                    </div>
+                    <div class="orders-list">
+                        <div class="order-item">
+                            <div class="order-info">
+                                <span class="order-date">2024-04-08</span>
+                                <span class="order-status">Delivered</span>
+                            </div>
+                            <div class="order-details">
+                                <span class="order-items">3 items</span>
+                                <span class="order-total">€45.99</span>
+                            </div>
                         </div>
                         <div class="chart-card">
                             <h3>Medication Distribution</h3>
@@ -100,19 +124,25 @@
                     </div>
                 </section>
 
-                <!-- Recent Activity -->
-                <div class="detailed-analytics">
-                    <div class="analytics-row">
-                        <div class="analytics-card">
-                            <h3>Top Medications</h3>
-                            <div class="medication-list">
-                                <div class="medication-item">
-                                    <span class="med-name">Paracetamol</span>
-                                    <span class="med-count">234 units</span>
+                <!-- Profile Section -->
+                <section id="profile" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h1>My Profile</h1>
+                        <p class="section-description">Manage your personal information</p>
+                    </div>
+                    <div class="profile-content">
+                        <div class="profile-info">
+                            <div class="profile-header">
+                                <div class="profile-picture-container">
+                                    <img src="../../images/R-removebg-preview.png" alt="Profile Picture" class="profile-picture" id="profilePicture">
+                                    <button class="change-picture-btn" title="Change Profile Picture">
+                                        <i class="fas fa-camera"></i>
+                                    </button>
+                                    <input type="file" id="profileImageInput" accept="image/*" style="display: none;">
                                 </div>
-                                <div class="medication-item">
-                                    <span class="med-name">Amoxicillin</span>
-                                    <span class="med-count">189 units</span>
+                                <div class="profile-name">
+                                    <h2>Admin</h2>
+                                    <p class="member-since">Member since 2024</p>
                                 </div>
                                 <div class="medication-item">
                                     <span class="med-name">Ibuprofen</span>
