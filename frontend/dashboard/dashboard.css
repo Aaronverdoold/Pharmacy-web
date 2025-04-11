@@ -156,27 +156,115 @@ body {
 }
 
 .notifications {
-    font-size: 1.2rem;
-    color: #4a5568;
-    cursor: pointer;
     position: relative;
+    margin-right: 1.5rem;
+    cursor: pointer;
+}
+
+.notifications i {
+    color: #056439;
+    font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
-.notifications:hover {
-    color: #056439;
+.notifications:hover i {
+    color: #04502f;
 }
 
-.notifications::after {
-    content: '3';
+.notification-badge {
     position: absolute;
     top: -8px;
     right: -8px;
-    background-color: #056439;
+    background-color: #e53e3e;
     color: white;
-    font-size: 0.7rem;
+    border-radius: 50%;
     padding: 2px 6px;
-    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.notification-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.notification-dropdown[style*="display: block"] {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.notification-header {
+    padding: 1rem;
+    border-bottom: 1px solid #edf2f7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notification-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #2d3748;
+}
+
+.clear-all {
+    background: none;
+    border: none;
+    color: #718096;
+    cursor: pointer;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.clear-all:hover {
+    color: #2d3748;
+    background-color: #f7fafc;
+}
+
+.notification-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    padding: 1rem;
+    border-bottom: 1px solid #edf2f7;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.notification-item:hover {
+    background-color: #f7fafc;
+}
+
+.notification-item .notification-title {
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.25rem;
+}
+
+.notification-item .notification-message {
+    color: #718096;
+    font-size: 0.875rem;
+}
+
+.notification-item .notification-time {
+    color: #a0aec0;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
 }
 
 .profile-img {
@@ -527,12 +615,47 @@ body {
     border-bottom: 1px solid #edf2f7;
 }
 
-.profile-picture {
+.profile-picture-container {
+    position: relative;
     width: 120px;
     height: 120px;
+    margin-right: 2rem;
+}
+
+.profile-picture {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid #056439;
+    transition: all 0.3s ease;
+}
+
+.change-picture-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #056439;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.change-picture-btn:hover {
+    background-color: #04502f;
+    transform: scale(1.1);
+}
+
+.change-picture-btn i {
+    font-size: 1rem;
 }
 
 .profile-name h2 {
@@ -913,39 +1036,4 @@ input:checked + .slider:before {
     .chart-container {
         height: 250px;
     }
-}
-
-/* Order Actions */
-.order-actions {
-    display: flex;
-    gap: 0.5rem;
-    margin-left: auto;
-}
-
-.action-btn {
-    background: none;
-    border: none;
-    padding: 0.5rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: #718096;
-}
-
-.action-btn:hover {
-    transform: translateY(-2px);
-}
-
-.edit-btn:hover {
-    color: #056439;
-    background-color: rgba(5, 100, 57, 0.1);
-}
-
-.delete-btn:hover {
-    color: #e53e3e;
-    background-color: rgba(229, 62, 62, 0.1);
-}
-
-.action-btn i {
-    font-size: 1rem;
 }

@@ -87,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let ordersChart = null;
 
-// Create and configure dashboard charts
 function initializeCharts() {
     // Orders Chart
     const ordersCtx = document.getElementById('ordersChart').getContext('2d');
