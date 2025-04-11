@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pharmacy Dashboard</title>
+    <title>User Dashboard | Apothecare</title>
     <link rel="stylesheet" href="dashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../../images/Nieuwe logo.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -14,140 +15,306 @@
         <!-- Navigation Menu -->
         <aside class="sidebar">
             <div class="logo">
-                <a href="../home-page/home.html"><img src="../../images/Nieuwe logo.png" alt="Pharmacy Logo"></a>
+                <a href="../home-page/home.html"><img src="../../images/Nieuwe logo.png" alt="Apothecare Logo"></a>
             </div>
             <nav class="sidebar-nav">
                 <a href="#overview" class="active"><i class="fas fa-home"></i> Overview</a>
-                <a href="#medications"><i class="fas fa-pills"></i> Medications</a>
-                <a href="#patients"><i class="fas fa-users"></i> Patients</a>
-                <a href="#prescriptions"><i class="fas fa-file-invoice"></i> Prescriptions</a>
-                <a href="#analytics"><i class="fas fa-chart-bar"></i> Analytics</a>
+                <a href="#orders"><i class="fas fa-shopping-bag"></i> Orders</a>
+                <a href="#prescriptions"><i class="fas fa-file-medical"></i> Prescriptions</a>
+                <a href="#profile"><i class="fas fa-user"></i> Profile</a>
                 <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
             </nav>
         </aside>
 
         <!-- Main Dashboard Area -->
         <main class="main-content">
-            <!-- Search and Profile Bar -->
+            <!-- Top Navigation Bar -->
             <nav class="top-nav">
                 <div class="nav-links">
                     <a href="../home-page/home.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                    <span class="nav-divider">|</span>
+                    <span class="current-page">Dashboard</span>
                 </div>
                 <div class="user-profile">
                     <span class="notifications"><i class="fas fa-bell"></i></span>
-                    <img src="../../images/R-removebg-preview.png" alt="Profile" class="profile-img">
+                    <div class="profile-dropdown">
+                        <img src="../../images/R-removebg-preview.png" alt="Profile" class="profile-img">
+                        <div class="dropdown-content">
+                            <a href="#profile"><i class="fas fa-user"></i> My Profile</a>
+                            <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="../login-page/login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
                 </div>
             </nav>
 
-            <!-- Dashboard Overview -->
+            <!-- Dashboard Content -->
             <div class="dashboard-content">
-                <section id="overview">
-                    <h1>Dashboard Overview</h1>
-                    
-                    <!-- Key Statistics -->
+                <!-- Overview Section -->
+                <section id="overview" class="dashboard-section">
+                    <div class="welcome-section">
+                        <h1>Welcome Back!</h1>
+                        <p class="welcome-message">Here's an overview of your pharmacy activity</p>
+                    </div>
+
+                    <!-- Stats Cards -->
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <i class="fas fa-pills"></i>
+                            <div class="stat-icon">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
                             <div class="stat-info">
-                                <h3>Total Medications</h3>
-                                <p>1,234</p>
+                                <h3>Total Orders</h3>
+                                <p class="stat-value">24</p>
+                                <p class="stat-change positive">+12% from last month</p>
                             </div>
                         </div>
                         <div class="stat-card">
-                            <i class="fas fa-users"></i>
+                            <div class="stat-icon">
+                                <i class="fas fa-file-medical"></i>
+                            </div>
                             <div class="stat-info">
-                                <h3>Active Patients</h3>
-                                <p>856</p>
+                                <h3>Active Prescriptions</h3>
+                                <p class="stat-value">8</p>
+                                <p class="stat-change positive">+2 new this month</p>
                             </div>
                         </div>
                         <div class="stat-card">
-                            <i class="fas fa-file-invoice"></i>
+                            <div class="stat-icon">
+                                <i class="fas fa-euro-sign"></i>
+                            </div>
                             <div class="stat-info">
-                                <h3>Prescriptions</h3>
-                                <p>432</p>
+                                <h3>Total Spent</h3>
+                                <p class="stat-value">€856.50</p>
+                                <p class="stat-change negative">-5% from last month</p>
                             </div>
                         </div>
                         <div class="stat-card">
-                            <i class="fas fa-chart-line"></i>
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
                             <div class="stat-info">
-                                <h3>Revenue</h3>
-                                <p>$12,345</p>
+                                <h3>Next Prescription</h3>
+                                <p class="stat-value">3 days</p>
+                                <p class="stat-change">Paracetamol</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Section -->
+                    <div class="charts-grid">
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3>Monthly Orders</h3>
+                                <select class="chart-period">
+                                    <option value="week">This Week</option>
+                                    <option value="month" selected>This Month</option>
+                                    <option value="year">This Year</option>
+                                </select>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="ordersChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3>Prescription Status</h3>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="prescriptionsChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="activity-section">
+                        <div class="section-header">
+                            <h2>Recent Activity</h2>
+                            <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <p class="activity-text">New order placed for Paracetamol</p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                                <span class="activity-status">Processing</span>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-file-medical"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <p class="activity-text">Prescription for Ibuprofen renewed</p>
+                                    <span class="activity-time">1 day ago</span>
+                                </div>
+                                <span class="activity-status">Active</span>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <p class="activity-text">Order #1234 delivered</p>
+                                    <span class="activity-time">2 days ago</span>
+                                </div>
+                                <span class="activity-status">Delivered</span>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Business Analytics -->
-                <section id="analytics" class="analytics-section">
-                    <h2>Analytics Overview</h2>
-                    <div class="analytics-grid">
-                        <div class="chart-card">
-                            <h3>Sales Overview</h3>
-                            <canvas id="salesChart"></canvas>
+                <!-- Orders Section -->
+                <section id="orders" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h1>My Orders</h1>
+                        <p class="section-description">View and manage your orders</p>
+                    </div>
+                    <div class="orders-list">
+                        <div class="order-item">
+                            <div class="order-info">
+                                <span class="order-date">2024-04-08</span>
+                                <span class="order-status">Delivered</span>
+                            </div>
+                            <div class="order-details">
+                                <span class="order-items">3 items</span>
+                                <span class="order-total">€45.99</span>
+                            </div>
+                            <div class="order-actions">
+                                <button class="action-btn edit-btn" title="Edit Order">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="action-btn delete-btn" title="Delete Order">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
                         </div>
-                        <div class="chart-card">
-                            <h3>Patient Growth</h3>
-                            <canvas id="patientChart"></canvas>
-                        </div>
-                        <div class="chart-card">
-                            <h3>Medication Distribution</h3>
-                            <canvas id="medicationChart"></canvas>
-                        </div>
-                        <div class="chart-card">
-                            <h3>Prescription Trends</h3>
-                            <canvas id="prescriptionChart"></canvas>
+                        <div class="order-item">
+                            <div class="order-info">
+                                <span class="order-date">2024-04-05</span>
+                                <span class="order-status">Processing</span>
+                            </div>
+                            <div class="order-details">
+                                <span class="order-items">2 items</span>
+                                <span class="order-total">€32.50</span>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Recent Activity -->
-                <div class="detailed-analytics">
-                    <div class="analytics-row">
-                        <div class="analytics-card">
-                            <h3>Top Medications</h3>
-                            <div class="medication-list">
-                                <div class="medication-item">
-                                    <span class="med-name">Paracetamol</span>
-                                    <span class="med-count">234 units</span>
-                                </div>
-                                <div class="medication-item">
-                                    <span class="med-name">Amoxicillin</span>
-                                    <span class="med-count">189 units</span>
-                                </div>
-                                <div class="medication-item">
-                                    <span class="med-name">Ibuprofen</span>
-                                    <span class="med-count">156 units</span>
+                <!-- Prescriptions Section -->
+                <section id="prescriptions" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h1>My Prescriptions</h1>
+                        <p class="section-description">View and manage your prescriptions</p>
+                    </div>
+                    <div class="prescriptions-list">
+                        <div class="prescription-item">
+                            <div class="prescription-info">
+                                <span class="prescription-name">Paracetamol</span>
+                                <span class="prescription-date">Valid until: 2024-05-08</span>
+                            </div>
+                            <span class="prescription-status">Active</span>
+                        </div>
+                        <div class="prescription-item">
+                            <div class="prescription-info">
+                                <span class="prescription-name">Ibuprofen</span>
+                                <span class="prescription-date">Valid until: 2024-05-12</span>
+                            </div>
+                            <span class="prescription-status">Active</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Profile Section -->
+                <section id="profile" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h1>My Profile</h1>
+                        <p class="section-description">Manage your personal information</p>
+                    </div>
+                    <div class="profile-content">
+                        <div class="profile-info">
+                            <div class="profile-header">
+                                <img src="../../images/R-removebg-preview.png" alt="Profile Picture" class="profile-picture">
+                                <div class="profile-name">
+                                    <!-- <?php echo htmlspecialchars($_SESSION['user_name']); ?> -->
+                                    <h2>John Doe</h2>
+                                    <p class="member-since">Member since 2024</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="analytics-card">
-                            <h3>Recent Prescriptions</h3>
-                            <div class="prescription-list">
-                                <div class="prescription-item">
-                                    <div class="pres-info">
-                                        <span class="pres-name">John Doe</span>
-                                        <span class="pres-date">2024-04-08</span>
+                            <div class="profile-details">
+                                <div class="detail-group">
+                                    <h3>Personal Information</h3>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Email:</span>
+                                        <!-- <?php echo htmlspecialchars($_SESSION['user_email']); ?> -->
+                                        <span class="detail-value">john.doe@example.com</span>
                                     </div>
-                                    <span class="pres-status">Completed</span>
-                                </div>
-                                <div class="prescription-item">
-                                    <div class="pres-info">
-                                        <span class="pres-name">Jane Smith</span>
-                                        <span class="pres-date">2024-04-07</span>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Phone:</span>
+                                        <!-- <?php echo htmlspecialchars($_SESSION['user_phone']); ?> -->
+                                        <span class="detail-value">+31 6 12345678</span>
                                     </div>
-                                    <span class="pres-status">Pending</span>
-                                </div>
-                                <div class="prescription-item">
-                                    <div class="pres-info">
-                                        <span class="pres-name">Mike Johnson</span>
-                                        <span class="pres-date">2024-04-06</span>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Address:</span>
+                                        <!-- <?php echo htmlspecialchars($_SESSION['user_address']); ?> -->
+                                        <span class="detail-value">123 Main Street, Amsterdam</span>
                                     </div>
-                                    <span class="pres-status">Completed</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h1>Settings</h1>
+                        <p class="section-description">Customize your account preferences</p>
+                    </div>
+                    <div class="settings-content">
+                        <div class="settings-group">
+                            <h3>Account Settings</h3>
+                            <div class="settings-item">
+                                <div class="settings-info">
+                                    <h4>Email Notifications</h4>
+                                    <p>Receive updates about your orders and prescriptions</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="settings-item">
+                                <div class="settings-info">
+                                    <h4>Two-Factor Authentication</h4>
+                                    <p>Add an extra layer of security to your account</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="settings-group">
+                            <h3>Privacy Settings</h3>
+                            <div class="settings-item">
+                                <div class="settings-info">
+                                    <h4>Profile Visibility</h4>
+                                    <p>Control who can see your profile information</p>
+                                </div>
+                                <select class="privacy-select">
+                                    <option value="public">Public</option>
+                                    <option value="private">Private</option>
+                                    <option value="friends">Friends Only</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </main>
     </div>

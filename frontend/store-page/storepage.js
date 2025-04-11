@@ -8,29 +8,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.querySelector('.search-bar button');
     let cart = [];
 
-    // Search functionality
-    function filterProducts(searchTerm) {
+    // Search functionality with debouncing
+    let searchTimeout;
+    const productsContainer = document.querySelector('.products-container');
+    const noResultsMessage = document.createElement('div');
+    noResultsMessage.className = 'no-results';
+    noResultsMessage.textContent = 'No products found';
+    noResultsMessage.style.display = 'none';
+    productsContainer.appendChild(noResultsMessage);
+
+    function debounce(func, wait) {
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(searchTimeout);
+                func(...args);
+            };
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(later, wait);
+        };
+    }
+
+    const performSearch = debounce((searchTerm) => {
         const products = document.querySelectorAll('.product');
+        let hasResults = false;
         const searchTermLower = searchTerm.toLowerCase();
 
         products.forEach(product => {
-            const productTitle = product.querySelector('.product-title').textContent.toLowerCase();
-            if (productTitle.includes(searchTermLower)) {
-                product.style.display = 'block';
-            } else {
-                product.style.display = 'none';
-            }
+            const title = product.querySelector('.product-title').textContent.toLowerCase();
+            const description = product.getAttribute('data-description')?.toLowerCase() || '';
+            const isVisible = title.includes(searchTermLower) || description.includes(searchTermLower);
+            
+            product.style.display = isVisible ? 'block' : 'none';
+            if (isVisible) hasResults = true;
         });
-    }
 
-    // Handle search input
+        noResultsMessage.style.display = hasResults ? 'none' : 'block';
+    }, 300);
+
     searchInput.addEventListener('input', (e) => {
-        filterProducts(e.target.value);
+        performSearch(e.target.value);
     });
 
     // Handle search button click
     searchButton.addEventListener('click', () => {
-        filterProducts(searchInput.value);
+        performSearch(searchInput.value);
     });
 
     // Show/hide cart dropdown when clicking the cart button

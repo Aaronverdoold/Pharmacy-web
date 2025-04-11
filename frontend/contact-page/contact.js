@@ -11,7 +11,7 @@ contactForm.addEventListener('submit', function(e) {
     const message = document.getElementById('message').value;
     
     // Here you would typically send this data to your backend
-    // For now, we'll just show a success message
+    // For now, we'll just show a success message cause db doesnt work for me
     showNotification('Message sent successfully! We will get back to you soon.', 'success');
     
     // Reset form

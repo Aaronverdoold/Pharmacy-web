@@ -1,71 +1,87 @@
 // Initialize dashboard when page loads
 document.addEventListener('DOMContentLoaded', function() {
-    // Handle menu navigation and smooth scrolling
-    const navLinks = document.querySelectorAll('.sidebar-nav a');
-    navLinks.forEach(link => {
+    // Initialize charts
+    initializeCharts();
+
+    // Handle sidebar navigation
+    const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+    const sections = document.querySelectorAll('.dashboard-section');
+
+    sidebarLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Update active menu item
-            navLinks.forEach(l => l.classList.remove('active'));
+            // Remove active class from all links
+            sidebarLinks.forEach(l => l.classList.remove('active'));
+            // Add active class to clicked link
             this.classList.add('active');
+
+            // Hide all sections
+            sections.forEach(section => section.classList.add('hidden'));
             
-            // Smooth scroll to selected section
+            // Show the selected section
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
-            
             if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                targetSection.classList.remove('hidden');
             }
         });
     });
 
-    // Search functionality
-    const searchInput = document.querySelector('.search-bar input');
-    const searchButton = document.querySelector('.search-bar button');
-
-    searchButton.addEventListener('click', function() {
-        const searchTerm = searchInput.value.trim();
-        if (searchTerm) {
-            // TODO: Implement search functionality not implemented yet
-            console.log('Searching for:', searchTerm);
-        }
-    });
-
-    searchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            const searchTerm = this.value.trim();
-            if (searchTerm) {
-                // TODO: Implement search functionality not implemented yet
-                console.log('Searching for:', searchTerm);
+    // Handle smooth scrolling for "View All" links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                // Update active navigation
+                sidebarLinks.forEach(l => l.classList.remove('active'));
+                document.querySelector(`.sidebar-nav a[href="#${targetId}"]`).classList.add('active');
+                
+                // Show the target section
+                sections.forEach(section => section.classList.add('hidden'));
+                targetSection.classList.remove('hidden');
+                
+                // Scroll to top of the section
+                targetSection.scrollIntoView({ behavior: 'smooth' });
             }
-        }
+        });
     });
 
-    // Notification system. this thing can be removed.
-    const notificationBell = document.querySelector('.notifications');
-    notificationBell.addEventListener('click', function() {
+    // Handle notifications
+    const notifications = document.querySelector('.notifications');
+    notifications.addEventListener('click', function() {
+        // Add notification dropdown functionality here
         console.log('Notifications clicked');
     });
 
-    // Initialize dashboard charts
-    initializeCharts();
+    // Handle chart period changes
+    const chartPeriod = document.querySelector('.chart-period');
+    if (chartPeriod) {
+        chartPeriod.addEventListener('change', function() {
+            updateOrdersChart(this.value);
+        });
+    }
+
+    // Load user data
+    loadUserData();
+
+    // Initialize order actions
+    initializeOrderActions();
 });
 
-// Create and configure dashboard charts
 function initializeCharts() {
-    // Sales performance chart
-    const salesCtx = document.getElementById('salesChart').getContext('2d');
-    new Chart(salesCtx, {
+    // Orders Chart
+    const ordersCtx = document.getElementById('ordersChart').getContext('2d');
+    const ordersChart = new Chart(ordersCtx, {
         type: 'line',
         data: {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
             datasets: [{
-                label: 'Sales',
-                data: [12000, 19000, 15000, 25000, 22000, 30000],
+                label: 'Orders',
+                data: [12, 19, 15, 25, 22, 30],
                 borderColor: '#056439',
                 backgroundColor: 'rgba(5, 100, 57, 0.1)',
                 tension: 0.4,
@@ -74,6 +90,7 @@ function initializeCharts() {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     display: false
@@ -83,8 +100,7 @@ function initializeCharts() {
                 y: {
                     beginAtZero: true,
                     grid: {
-                        display: true,
-                        color: 'rgba(0, 0, 0, 0.05)'
+                        color: '#edf2f7'
                     }
                 },
                 x: {
@@ -96,105 +112,127 @@ function initializeCharts() {
         }
     });
 
-    // Patient growth chart
-    const patientCtx = document.getElementById('patientChart').getContext('2d');
-    new Chart(patientCtx, {
-        type: 'bar',
-        data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-            datasets: [{
-                label: 'New Patients',
-                data: [65, 59, 80, 81, 56, 85],
-                backgroundColor: '#056439',
-                borderRadius: 8
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: false
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    grid: {
-                        display: true,
-                        color: 'rgba(0, 0, 0, 0.05)'
-                    }
-                },
-                x: {
-                    grid: {
-                        display: false
-                    }
-                }
-            }
-        }
-    });
-
-    // Medication distribution chart
-    const medicationCtx = document.getElementById('medicationChart').getContext('2d');
-    new Chart(medicationCtx, {
+    // Prescriptions Chart
+    const prescriptionsCtx = document.getElementById('prescriptionsChart').getContext('2d');
+    const prescriptionsChart = new Chart(prescriptionsCtx, {
         type: 'doughnut',
         data: {
-            labels: ['Antibiotics', 'Painkillers', 'Vitamins', 'Others'],
+            labels: ['Active', 'Expired', 'Pending'],
             datasets: [{
-                data: [30, 25, 20, 25],
+                data: [8, 3, 2],
                 backgroundColor: [
                     '#056439',
-                    '#0d8a5c',
-                    '#15b07f',
-                    '#1ed6a2'
+                    '#e53e3e',
+                    '#f6ad55'
                 ]
             }]
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     position: 'bottom'
                 }
-            }
+            },
+            cutout: '70%'
         }
     });
+}
 
-    // Prescription trends chart
-    const prescriptionCtx = document.getElementById('prescriptionChart').getContext('2d');
-    new Chart(prescriptionCtx, {
-        type: 'line',
-        data: {
-            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-            datasets: [{
-                label: 'Prescriptions',
-                data: [12, 19, 15, 17, 22, 24, 20],
-                borderColor: '#056439',
-                backgroundColor: 'rgba(5, 100, 57, 0.1)',
-                tension: 0.4,
-                fill: true
-            }]
+function updateOrdersChart(period) {
+    // This function would update the orders chart based on the selected period
+    // For now, we'll just log the selected period
+    console.log('Updating chart for period:', period);
+}
+
+function loadUserData() {
+    // Mock data for demonstration
+    const mockOrders = [
+        {
+            date: '2024-04-08',
+            status: 'Delivered',
+            items: 3,
+            total: '€45.99'
         },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: false
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    grid: {
-                        display: true,
-                        color: 'rgba(0, 0, 0, 0.05)'
-                    }
-                },
-                x: {
-                    grid: {
-                        display: false
-                    }
-                }
-            }
+        {
+            date: '2024-04-05',
+            status: 'Processing',
+            items: 2,
+            total: '€32.50'
         }
+    ];
+
+    const mockPrescriptions = [
+        {
+            name: 'Paracetamol',
+            validUntil: '2024-05-08',
+            status: 'Active'
+        },
+        {
+            name: 'Ibuprofen',
+            validUntil: '2024-05-12',
+            status: 'Active'
+        }
+    ];
+
+    // Update orders list
+    const ordersList = document.querySelectorAll('.orders-list');
+    ordersList.forEach(list => {
+        list.innerHTML = mockOrders.map(order => `
+            <div class="order-item">
+                <div class="order-info">
+                    <span class="order-date">${order.date}</span>
+                    <span class="order-status">${order.status}</span>
+                </div>
+                <div class="order-details">
+                    <span class="order-items">${order.items} items</span>
+                    <span class="order-total">${order.total}</span>
+                </div>
+            </div>
+        `).join('');
+    });
+
+    // Update prescriptions list
+    const prescriptionsList = document.querySelectorAll('.prescriptions-list');
+    prescriptionsList.forEach(list => {
+        list.innerHTML = mockPrescriptions.map(prescription => `
+            <div class="prescription-item">
+                <div class="prescription-info">
+                    <span class="prescription-name">${prescription.name}</span>
+                    <span class="prescription-date">Valid until: ${prescription.validUntil}</span>
+                </div>
+                <span class="prescription-status">${prescription.status}</span>
+            </div>
+        `).join('');
+    });
+}
+
+// Order Actions
+function initializeOrderActions() {
+    const editButtons = document.querySelectorAll('.edit-btn');
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+
+    editButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const orderItem = this.closest('.order-item');
+            // TODO: Implement edit functionality
+            console.log('Edit order:', orderItem);
+        });
+    });
+
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const orderItem = this.closest('.order-item');
+            if (confirm('Are you sure you want to delete this order?')) {
+                orderItem.style.opacity = '0';
+                setTimeout(() => {
+                    orderItem.remove();
+                    // TODO: Implement actual deletion in backend
+                }, 300);
+            }
+        });
     });
 }
