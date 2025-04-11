@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pharmacy Store</title>
+    <title>Apotheek Winkel</title>
     <link rel="stylesheet" href="storepage.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="../shared/chatbot.css">
 </head>
-<body>
+    <body>
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <a href="../home-page/home.html"><img src="../../images/Nieuwe logo.png" alt="Pharmacy Store Logo"></a>
+                <a href="../home-page/home.html"><img src="../../images/Nieuwe logo.png" alt="Apotheek Winkel Logo"></a>
             </div>
             <div class="main-nav">
                 <div class="nav-left">
                     <a href="../home-page/home.html">Home</a>
-                    <a href="storepage.html">Store</a>
+                    <a href="storepage.html">Winkel</a>
                     <a href="../contact-page/contact.html">Contact</a>
                 </div>
                 <div class="search-bar">
-                    <input type="text" placeholder="Search products...">
-                    <button type="submit">Search</button>
+                    <input type="text" placeholder="Zoek producten...">
+                    <button type="submit">Zoeken</button>
                 </div>
                 <div class="nav-right">
                     <button class="cart-button">
@@ -32,13 +32,13 @@
                     </button>
                     <div class="cart-dropdown">
                         <div class="cart-items">
-                            <!-- Cart items will be dynamically added here -->
+                            <!-- Winkelwagen items worden hier dynamisch toegevoegd -->
                         </div>
                         <div class="cart-total">
-                            <span>Total:</span>
+                            <span>Totaal:</span>
                             <span id="cart-total-price">€0.00</span>
                         </div>
-                        <button class="checkout-button">Checkout</button>
+                        <button class="checkout-button">Afrekenen</button>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                     </div>
                     <h3 class="product-title">Paracetamol</h3>
                     <p class="product-price">€5.99</p>
-                    <button class="add-button" data-id="1" data-name="Paracetamol" data-price="5.99">Add</button>
+                    <button class="add-button" data-id="1" data-name="Paracetamol" data-price="5.99">Toevoegen</button>
                 </div>
 
                 <!-- Product 2 -->
@@ -65,29 +65,29 @@
                     </div>
                     <h3 class="product-title">Ibuprofen</h3>
                     <p class="product-price">€7.99</p>
-                    <button class="add-button" data-id="2" data-name="Ibuprofen" data-price="7.99">Add</button>
+                    <button class="add-button" data-id="2" data-name="Ibuprofen" data-price="7.99">Toevoegen</button>
                 </div>
 
                 <!-- Product 3 -->
                 <div class="product">
                     <div class="product-image">
-                        <img src="../../images/Aspirin.png" alt="Aspirin">
+                        <img src="../../images/Aspirin.png" alt="Aspirine">
                     </div>
-                    <h3 class="product-title">Aspirin</h3>
+                    <h3 class="product-title">Aspirine</h3>
                     <p class="product-price">€6.99</p>
-                    <button class="add-button" data-id="3" data-name="Aspirin" data-price="6.99">Add</button>
+                    <button class="add-button" data-id="3" data-name="Aspirine" data-price="6.99">Toevoegen</button>
                 </div>
 
                 <!-- Product 4 -->
                 <div class="product">
                     <div class="product-image">
-                        <img src="../../images/Vitamin.webp" alt="Vitamin C">
+                        <img src="../../images/Vitamin.webp" alt="Vitamine C">
                     </div>
-                    <h3 class="product-title">Vitamin C</h3>
+                    <h3 class="product-title">Vitamine C</h3>
                     <p class="product-price">€9.99</p>
-                    <button class="add-button" data-id="4" data-name="Vitamin C" data-price="9.99">Add</button>
+                    <button class="add-button" data-id="4" data-name="Vitamine C" data-price="9.99">Toevoegen</button>
                 </div>
-                
+
                 <!-- Product 5 -->
                 <div class="product">
                     <div class="product-image">
@@ -95,9 +95,9 @@
                     </div>
                     <h3 class="product-title">Voltaren</h3>
                     <p class="product-price">€12.99</p>
-                    <button class="add-button" data-id="5" data-name="Voltaren" data-price="12.99">Add</button>
+                    <button class="add-button" data-id="5" data-name="Voltaren" data-price="12.99">Toevoegen</button>
                 </div>
-                
+
                 <!-- Product 6 -->
                 <div class="product">
                     <div class="product-image">
@@ -105,9 +105,9 @@
                     </div>
                     <h3 class="product-title">Menosol Pro</h3>
                     <p class="product-price">€14.99</p>
-                    <button class="add-button" data-id="6" data-name="Menosol Pro" data-price="14.99">Add</button>
+                    <button class="add-button" data-id="6" data-name="Menosol Pro" data-price="14.99">Toevoegen</button>
                 </div>
-                
+
                 <!-- Product 7 -->
                 <div class="product">
                     <div class="product-image">
@@ -115,9 +115,9 @@
                     </div>
                     <h3 class="product-title">Nurofen</h3>
                     <p class="product-price">€8.99</p>
-                    <button class="add-button" data-id="7" data-name="Nurofen" data-price="8.99">Add</button>
+                    <button class="add-button" data-id="7" data-name="Nurofen" data-price="8.99">Toevoegen</button>
                 </div>
-                
+
                 <!-- Product 8 -->
                 <div class="product">
                     <div class="product-image">
@@ -125,7 +125,7 @@
                     </div>
                     <h3 class="product-title">Bepanthen</h3>
                     <p class="product-price">€11.99</p>
-                    <button class="add-button" data-id="8" data-name="Bepanthen" data-price="11.99">Add</button>
+                    <button class="add-button" data-id="8" data-name="Bepanthen" data-price="11.99">Toevoegen</button>
                 </div>
             </div>
         </div>
@@ -135,24 +135,24 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-links">
-                    <h3>Opening Hours</h3>
+                    <h3>Openingstijden</h3>
                     <ul>
-                        <li><i class="ri-time-line"></i> Monday - Friday: 9:00 AM - 8:00 PM</li>
-                        <li><i class="ri-time-line"></i> Saturday: 9:00 AM - 6:00 PM</li>
-                        <li><i class="ri-time-line"></i> Sunday: 10:00 AM - 4:00 PM</li>
+                        <li><i class="ri-time-line"></i> Maandag - Vrijdag: 9:00 - 20:00</li>
+                        <li><i class="ri-time-line"></i> Zaterdag: 9:00 - 18:00</li>
+                        <li><i class="ri-time-line"></i> Zondag: 10:00 - 16:00</li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h3>Quick Links</h3>
+                    <h3>Snelkoppelingen</h3>
                     <ul>
                         <li><a href="../home-page/home.html">Home</a></li>
-                        <li><a href="storepage.html#products">Products</a></li>
+                        <li><a href="storepage.html#products">Producten</a></li>
                         <li><a href="../contact-page/contact.html">Contact</a></li>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Over ons</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h3>Contact Info</h3>
+                    <h3>Contactgegevens</h3>
                     <ul>
                         <li><i class="ri-map-pin-line"></i> Groen van Prinsterersingel 52, 2805 TE Gouda</li>
                         <li><i class="ri-phone-line"></i> 06 12345678</li>
@@ -161,26 +161,26 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Apothecare. All rights reserved.</p>
+                <p>&copy; 2025 Apothecare. Alle rechten voorbehouden.</p>
             </div>
         </div>
     </footer>
 
-    <script src="storepage.js"></script>
-    <script src="../shared/chatbot.js"></script>
+        <script src="storepage.js"></script>
+        <script src="../shared/chatbot.js"></script>
 
-    <!-- Checkout Popup -->
+        <!-- Checkout Popup -->
     <div class="checkout-popup" id="checkoutPopup">
         <div class="checkout-content">
             <div class="checkout-header">
-                <h2>Secure Payment</h2>
+                <h2>Veilige Betaling</h2>
                 <button class="close-checkout"><i class="ri-close-line"></i></button>
             </div>
             <div class="checkout-body">
                 <div class="payment-method-selector">
                     <button class="payment-method active" data-method="card">
                         <i class="ri-bank-card-line"></i>
-                        <span>Credit/Debit Card</span>
+                        <span>Credit/Debetkaart</span>
                     </button>
                     <button class="payment-method" data-method="ideal">
                         <i class="ri-bank-line"></i>
@@ -189,7 +189,7 @@
                 </div>
                 <div class="payment-form" id="cardPayment">
                     <div class="form-group">
-                        <label for="cardNumber">Card Number</label>
+                        <label for="cardNumber">Kaartnummer</label>
                         <div class="card-input">
                             <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
                             <i class="ri-bank-card-line"></i>
@@ -197,8 +197,8 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="expiryDate">Expiry Date</label>
-                            <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5">
+                            <label for="expiryDate">Vervaldatum</label>
+                            <input type="text" id="expiryDate" placeholder="MM/JJ" maxlength="5">
                         </div>
                         <div class="form-group">
                             <label for="cvv">CVV</label>
@@ -206,15 +206,15 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="cardName">Name on Card</label>
-                        <input type="text" id="cardName" placeholder="John Doe">
+                        <label for="cardName">Naam op Kaart</label>
+                        <input type="text" id="cardName" placeholder="Jan Jansen">
                     </div>
                 </div>
                 <div class="payment-form" id="idealPayment" style="display: none;">
                     <div class="form-group">
-                        <label for="bankSelect">Select Your Bank</label>
+                        <label for="bankSelect">Selecteer Uw Bank</label>
                         <select id="bankSelect">
-                            <option value="">Choose your bank</option>
+                            <option value="">Kies uw bank</option>
                             <option value="ABN">ABN AMRO</option>
                             <option value="ING">ING Bank</option>
                             <option value="RABO">Rabobank</option>
@@ -228,37 +228,37 @@
                     </div>
                 </div>
                 <div class="payment-total">
-                    <span>Total Amount:</span>
+                    <span>Totaalbedrag:</span>
                     <span id="payment-total">€0.00</span>
                 </div>
-                <button class="pay-button">Pay Now</button>
+                <button class="pay-button">Nu Betalen</button>
                 <div class="payment-security">
                     <i class="ri-shield-check-line"></i>
-                    <span>Secure Payment</span>
-                    <p>Your payment information is encrypted and secure</p>
+                    <span>Veilige Betaling</span>
+                    <p>Uw betalingsinformatie is versleuteld en veilig</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Chatbot Panel -->
+    <!-- Chatbot Paneel -->
     <div class="chatbot-panel">
-      <div class="chatbot-toggle">
-        <i class="ri-message-3-line"></i>
-      </div>
-      <div class="chatbot-content">
-        <div class="chatbot-header">
-          <h3>Chat with us</h3>
-          <button class="close-chatbot"><i class="ri-close-line"></i></button>
+        <div class="chatbot-toggle">
+            <i class="ri-message-3-line"></i>
         </div>
-        <div class="chatbot-messages">
-          <!-- Messages will appear here -->
+        <div class="chatbot-content">
+            <div class="chatbot-header">
+                <h3>Chat met ons</h3>
+                <button class="close-chatbot"><i class="ri-close-line"></i></button>
+            </div>
+            <div class="chatbot-messages">
+                <!-- Berichten verschijnen hier -->
+            </div>
+            <div class="chatbot-input">
+                <input type="text" placeholder="Typ uw bericht...">
+                <button><i class="ri-send-plane-fill"></i></button>
+            </div>
         </div>
-        <div class="chatbot-input">
-          <input type="text" placeholder="Type your message...">
-          <button><i class="ri-send-plane-fill"></i></button>
-        </div>
-      </div>
-    </div>
+</div>
 </body>
 </html>

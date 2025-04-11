@@ -3,321 +3,982 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard | Apothecare</title>
+    <title>Pharmacy Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="../../images/Nieuwe logo.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="dashboard-container">
-        <!-- Navigation Menu -->
-        <aside class="sidebar">
-            <div class="logo">
-                <a href="../home-page/home.html"><img src="../../images/Nieuwe logo.png" alt="Apothecare Logo"></a>
+<div class="dashboard-container">
+    <!-- Navigation Menu -->
+    <aside class="sidebar">
+        <div class="logo">
+            <a href="../home-page/home.html"><img src="../../images/Nieuwe logo.png" alt="Pharmacy Logo"></a>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#overview" class="active"><i class="fas fa-home"></i> Overview</a>
+            <a href="#medications"><i class="fas fa-pills"></i> Medications</a>
+            <a href="#patients"><i class="fas fa-users"></i> Patients</a>
+            <a href="#prescriptions"><i class="fas fa-file-invoice"></i> Prescriptions</a>
+            <a href="#analytics"><i class="fas fa-chart-bar"></i> Analytics</a>
+            <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+        </nav>
+    </aside>
+
+    <!-- Main Dashboard Area -->
+    <main class="main-content">
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="nav-links">
+                <a href="../home-page/home.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
             </div>
-            <nav class="sidebar-nav">
-                <a href="#overview" class="active"><i class="fas fa-home"></i> Overview</a>
-                <a href="#orders"><i class="fas fa-shopping-bag"></i> Orders</a>
-                <a href="#prescriptions"><i class="fas fa-file-medical"></i> Prescriptions</a>
-                <a href="#profile"><i class="fas fa-user"></i> Profile</a>
-                <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
-            </nav>
-        </aside>
-
-        <!-- Main Dashboard Area -->
-        <main class="main-content">
-            <!-- Top Navigation Bar -->
-            <nav class="top-nav">
-                <div class="nav-links">
-                    <a href="../home-page/home.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
-                    <span class="nav-divider">|</span>
-                    <span class="current-page">Dashboard</span>
-                </div>
-                <div class="user-profile">
-                    <span class="notifications"><i class="fas fa-bell"></i></span>
-                    <div class="profile-dropdown">
-                        <img src="../../images/R-removebg-preview.png" alt="Profile" class="profile-img">
-                        <div class="dropdown-content">
-                            <a href="#profile"><i class="fas fa-user"></i> My Profile</a>
-                            <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
-                            <a href="../login-page/login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            <div class="user-profile">
+                <div class="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">2</span>
+                    <div class="notification-dropdown">
+                        <div class="notification-header">
+                            <h3>Notifications</h3>
+                            <button class="clear-all">Clear All</button>
+                        </div>
+                        <div class="notification-list">
+                            <!-- Notifications will be added here dynamically -->
                         </div>
                     </div>
                 </div>
-            </nav>
-
-            <!-- Dashboard Content -->
-            <div class="dashboard-content">
-                <!-- Overview Section -->
-                <section id="overview" class="dashboard-section">
-                    <div class="welcome-section">
-                        <h1>Welcome Back!</h1>
-                        <p class="welcome-message">Here's an overview of your pharmacy activity</p>
+                <div class="profile-dropdown">
+                    <img src="https://via.placeholder.com/40" alt="Profile" class="profile-img">
+                    <div class="dropdown-content">
+                        <a href="#profile"><i class="fas fa-user"></i> Profile</a>
+                        <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     </div>
+                </div>
+            </div>
+        </nav>
 
-                    <!-- Stats Cards -->
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-shopping-bag"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3>Total Orders</h3>
-                                <p class="stat-value">24</p>
-                                <p class="stat-change positive">+12% from last month</p>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-file-medical"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3>Active Prescriptions</h3>
-                                <p class="stat-value">8</p>
-                                <p class="stat-change positive">+2 new this month</p>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-euro-sign"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3>Total Spent</h3>
-                                <p class="stat-value">€856.50</p>
-                                <p class="stat-change negative">-5% from last month</p>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3>Next Prescription</h3>
-                                <p class="stat-value">3 days</p>
-                                <p class="stat-change">Paracetamol</p>
-                            </div>
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section active">
+                <h1>Dashboard Overview</h1>
+
+                <!-- Statistics Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-pills"></i>
+                        <div class="stat-info">
+                            <h3>Total Medications</h3>
+                            <p>1,234</p>
                         </div>
                     </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-info">
+                            <h3>Active Patients</h3>
+                            <p>856</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-file-invoice"></i>
+                        <div class="stat-info">
+                            <h3>Prescriptions</h3>
+                            <p>432</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="stat-info">
+                            <h3>Revenue</h3>
+                            <p>$12,345</p>
+                        </div>
+                    </div>
+                </div>
 
-                    <!-- Charts Section -->
-                    <div class="charts-grid">
-                        <div class="chart-card">
+                <!-- Charts Section -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Orders Overview</h3>
+                            <select class="chart-period">
+                                <option value="week">Weekly</option>
+                                <option value="month" selected>Monthly</option>
+                                <option value="year">Yearly</option>
+                            </select>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="ordersChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Prescription Types</h3>
+                        <div class="chart-container">
+                            <canvas id="prescriptionsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Medications Section -->
+            <section id="medications" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Medications</h1>
+                    <p class="section-description">Manage your pharmacy's medication inventory</p>
+                </div>
+                <div class="medications-content">
+                    <div class="medications-header">
+                        <h2>Medication Inventory</h2>
+                        <button class="add-medication-btn" onclick="showAddMedicationForm()">
+                            <i class="fas fa-plus"></i> Add Medication
+                        </button>
+                    </div>
+
+                    <div class="medications-grid">
+                        <div class="medication-list">
+                            <div class="medication-filters">
+                                <input type="text" class="search-medication" placeholder="Search medications...">
+                                <select class="filter-category">
+                                    <option value="">All Categories</option>
+                                    <option value="prescription">Prescription</option>
+                                    <option value="otc">Over-the-Counter</option>
+                                    <option value="supplements">Supplements</option>
+                                </select>
+                            </div>
+
+                            <div class="medications-table">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Photo</th>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Stock</th>
+                                        <th>Price</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="medication-photo-container">
+                                                <img src="../../images/Paracetamol.webp" alt="Paracetamol" class="medication-img" onclick="selectMedicationPhoto(this)">
+                                            </div>
+                                        </td>
+                                        <td>Paracetamol 500mg</td>
+                                        <td>OTC</td>
+                                        <td>150</td>
+                                        <td>$5.99</td>
+                                        <td>
+                                            <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="medication-photo-container">
+                                                <img src="../../images/VoltarenK.png" alt="Voltaren" class="medication-img" onclick="selectMedicationPhoto(this)">
+                                            </div>
+                                        </td>
+                                        <td>Amoxicillin 250mg</td>
+                                        <td>Prescription</td>
+                                        <td>75</td>
+                                        <td>$12.99</td>
+                                        <td>
+                                            <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="add-medication-form" style="display: none;">
+                            <h3>Add New Medication</h3>
+                            <form id="medicationForm">
+                                <div class="form-group">
+                                    <label for="medicationName">Medication Name</label>
+                                    <input type="text" id="medicationName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="medicationCategory">Category</label>
+                                    <select id="medicationCategory" required>
+                                        <option value="prescription">Prescription</option>
+                                        <option value="otc">Over-the-Counter</option>
+                                        <option value="supplements">Supplements</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="medicationStock">Stock Quantity</label>
+                                    <input type="number" id="medicationStock" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="medicationPrice">Price</label>
+                                    <input type="number" id="medicationPrice" step="0.01" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Photo</label>
+                                    <div class="medication-photos-grid">
+                                        <div class="medication-photo-option" onclick="selectMedicationPhoto(this)">
+                                            <img src="../../images/Paracetamol.webp" alt="Paracetamol">
+                                        </div>
+                                        <div class="medication-photo-option" onclick="selectMedicationPhoto(this)">
+                                            <img src="../../images/VoltarenK.png" alt="Voltaren">
+                                        </div>
+                                        <div class="medication-photo-option" onclick="selectMedicationPhoto(this)">
+                                            <img src="../../images/Ibuprofen.jpg" alt="Ibuprofen">
+                                        </div>
+                                        <div class="medication-photo-option" onclick="selectMedicationPhoto(this)">
+                                            <img src="../../images/Aspirin.png" alt="Aspirin">
+                                        </div>
+                                        <div class="medication-photo-option" onclick="selectMedicationPhoto(this)">
+                                            <img src="../../images/Vitamin.webp" alt="Vitamin">
+                                        </div>
+                                        <div class="medication-photo-option" onclick="selectMedicationPhoto(this)">
+                                            <img src="../../images/MenosolPro.jpg" alt="Menosol">
+                                        </div>
+                                    </div>
+                                    <input type="hidden" id="selectedMedicationPhoto" value="">
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="save-btn">Save Medication</button>
+                                    <button type="button" class="cancel-btn" onclick="hideAddMedicationForm()">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Patients Section -->
+            <section id="patients" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Patients</h2>
+                    <button class="add-btn" onclick="showAddPatientForm()">Add Patient</button>
+                </div>
+                <div class="patients-content">
+                    <!-- Add Patient Form -->
+                    <div class="add-patient-form" style="display: none;">
+                        <h3>Add New Patient</h3>
+                        <form id="patientForm">
+                            <div class="form-group">
+                                <label for="patientName">Full Name</label>
+                                <input type="text" id="patientName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientEmail">Email</label>
+                                <input type="email" id="patientEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientPhone">Phone</label>
+                                <input type="tel" id="patientPhone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientAddress">Address</label>
+                                <textarea id="patientAddress" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientDOB">Date of Birth</label>
+                                <input type="date" id="patientDOB" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientGender">Gender</label>
+                                <select id="patientGender" required>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="save-btn">Save Patient</button>
+                                <button type="button" class="cancel-btn" onclick="hideAddPatientForm()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="patients-grid">
+                        <div class="patient-card">
+                            <div class="patient-header">
+                                <h3>Recent Patients</h3>
+                                <div class="patient-actions">
+                                    <button class="view-all-btn">View All</button>
+                                </div>
+                            </div>
+                            <div class="recent-items">
+                                <div class="recent-item">
+                                    <div class="item-info">
+                                        <span class="item-name">John Smith</span>
+                                        <span class="item-details">ID: P1001 | Last Visit: Today</span>
+                                    </div>
+                                    <span class="item-status active">Active</span>
+                                </div>
+                                <div class="recent-item">
+                                    <div class="item-info">
+                                        <span class="item-name">Sarah Johnson</span>
+                                        <span class="item-details">ID: P1002 | Last Visit: Yesterday</span>
+                                    </div>
+                                    <span class="item-status active">Active</span>
+                                </div>
+                                <div class="recent-item">
+                                    <div class="item-info">
+                                        <span class="item-name">Michael Brown</span>
+                                        <span class="item-details">ID: P1003 | Last Visit: 2 days ago</span>
+                                    </div>
+                                    <span class="item-status inactive">Inactive</span>
+                                </div>
+                                <div class="recent-item">
+                                    <div class="item-info">
+                                        <span class="item-name">Emily Davis</span>
+                                        <span class="item-details">ID: P1004 | Last Visit: 3 days ago</span>
+                                    </div>
+                                    <span class="item-status active">Active</span>
+                                </div>
+                                <div class="recent-item">
+                                    <div class="item-info">
+                                        <span class="item-name">Robert Wilson</span>
+                                        <span class="item-details">ID: P1005 | Last Visit: 1 week ago</span>
+                                    </div>
+                                    <span class="item-status inactive">Inactive</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="patient-card">
+                            <div class="patient-header">
+                                <h3>Patient Statistics</h3>
+                            </div>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-value">1,250</span>
+                                    <span class="stat-label">Total Patients</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">850</span>
+                                    <span class="stat-label">Active Patients</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">45</span>
+                                    <span class="stat-label">New This Month</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Prescriptions Section -->
+            <section id="prescriptions" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Prescriptions</h2>
+                    <button class="add-btn" onclick="showAddPrescriptionForm()">Add Prescription</button>
+                </div>
+                <div class="prescriptions-content">
+                    <!-- Add Prescription Form -->
+                    <div class="add-prescription-form" style="display: none;">
+                        <h3>Add New Prescription</h3>
+                        <form id="prescriptionForm">
+                            <div class="form-group">
+                                <label for="prescriptionPatient">Patient</label>
+                                <select id="prescriptionPatient" required>
+                                    <option value="">Select Patient</option>
+                                    <option value="P1001">John Smith (P1001)</option>
+                                    <option value="P1002">Sarah Johnson (P1002)</option>
+                                    <option value="P1003">Michael Brown (P1003)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="prescriptionDoctor">Doctor</label>
+                                <input type="text" id="prescriptionDoctor" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="prescriptionDate">Date</label>
+                                <input type="date" id="prescriptionDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Medications</label>
+                                <div class="medications-list">
+                                    <div class="medication-item">
+                                        <select class="medication-select" required>
+                                            <option value="">Select Medication</option>
+                                            <option value="M001">Paracetamol 500mg</option>
+                                            <option value="M002">Amoxicillin 250mg</option>
+                                            <option value="M003">Ibuprofen 200mg</option>
+                                        </select>
+                                        <input type="number" class="medication-quantity" placeholder="Quantity" required>
+                                        <button type="button" class="remove-medication-btn"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <button type="button" class="add-medication-btn" onclick="addMedicationItem()">Add Medication</button>
+                            </div>
+                            <div class="form-group">
+                                <label for="prescriptionNotes">Notes</label>
+                                <textarea id="prescriptionNotes"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="save-btn">Save Prescription</button>
+                                <button type="button" class="cancel-btn" onclick="hideAddPrescriptionForm()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="prescriptions-grid">
+                        <div class="prescription-card">
+                            <div class="prescription-header">
+                                <h3>Recent Prescriptions</h3>
+                                <div class="prescription-actions">
+                                    <button class="view-all-btn">View All</button>
+                                </div>
+                            </div>
+                            <div class="recent-items">
+                                <div class="recent-item">
+                                    <div class="item-info">
+                                        <span class="item-name">P1001 - John Smith</span>
+                                        <span class="item-details">2 medications | Total: $45.99</span>
+                                    </div>
+                                    <span class="item-status pending">Pending</span>
+                                </div>
+                                <div class="recent-item">
+                                    <div class="item-info">
+                                        <span class="item-name">P1002 - Sarah Johnson</span>
+                                        <span class="item-details">3 medications | Total: $78.50</span>
+                                    </div>
+                                    <span class="item-status completed">Completed</span>
+                                </div>
+                                <div class="recent-item">
+                                    <div class="item-info">
+                                        <span class="item-name">P1003 - Michael Brown</span>
+                                        <span class="item-details">1 medication | Total: $12.99</span>
+                                    </div>
+                                    <span class="item-status completed">Completed</span>
+                                </div>
+                                <div class="recent-item">
+                                    <div class="item-info">
+                                        <span class="item-name">P1004 - Emily Davis</span>
+                                        <span class="item-details">4 medications | Total: $120.75</span>
+                                    </div>
+                                    <span class="item-status pending">Pending</span>
+                                </div>
+                                <div class="recent-item">
+                                    <div class="item-info">
+                                        <span class="item-name">P1005 - Robert Wilson</span>
+                                        <span class="item-details">2 medications | Total: $35.50</span>
+                                    </div>
+                                    <span class="item-status cancelled">Cancelled</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="prescription-card">
+                            <div class="prescription-header">
+                                <h3>Prescription Statistics</h3>
+                            </div>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-value">125</span>
+                                    <span class="stat-label">Today's Prescriptions</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">850</span>
+                                    <span class="stat-label">This Week</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">3,200</span>
+                                    <span class="stat-label">This Month</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Analytics Dashboard</h2>
+                    <p>Comprehensive analytics and insights for your pharmacy</p>
+                </div>
+
+                <div class="analytics-content">
+                    <!-- Top Statistics -->
+                    <div class="analytics-stats">
+                        <div class="analytics-stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Monthly Revenue</h3>
+                                <p class="stat-value">$65,000</p>
+                                <p class="stat-change positive">+12.5%</p>
+                            </div>
+                        </div>
+                        <div class="analytics-stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>New Patients</h3>
+                                <p class="stat-value">420</p>
+                                <p class="stat-change positive">+8.2%</p>
+                            </div>
+                        </div>
+                        <div class="analytics-stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-pills"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Medications Sold</h3>
+                                <p class="stat-value">4,200</p>
+                                <p class="stat-change positive">+15.3%</p>
+                            </div>
+                        </div>
+                        <div class="analytics-stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-file-prescription"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Prescriptions</h3>
+                                <p class="stat-value">1,600</p>
+                                <p class="stat-change positive">+10.8%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Analytics Grid -->
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
                             <div class="chart-header">
-                                <h3>Monthly Orders</h3>
+                                <h3>Revenue Analysis</h3>
                                 <select class="chart-period">
-                                    <option value="week">This Week</option>
-                                    <option value="month" selected>This Month</option>
-                                    <option value="year">This Year</option>
+                                    <option value="week">Weekly</option>
+                                    <option value="month">Monthly</option>
+                                    <option value="year" selected>Yearly</option>
                                 </select>
                             </div>
                             <div class="chart-container">
-                                <canvas id="ordersChart"></canvas>
+                                <canvas id="revenueChart"></canvas>
                             </div>
                         </div>
-                        <div class="chart-card">
+                        <div class="analytics-card">
                             <div class="chart-header">
-                                <h3>Prescription Status</h3>
-                            </div>
-                            <div class="chart-container">
-                                <canvas id="prescriptionsChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Recent Activity -->
-                    <div class="activity-section">
-                        <div class="section-header">
-                            <h2>Recent Activity</h2>
-                            <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                        <div class="activity-list">
-                            <div class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="fas fa-shopping-bag"></i>
-                                </div>
-                                <div class="activity-info">
-                                    <p class="activity-text">New order placed for Paracetamol</p>
-                                    <span class="activity-time">2 hours ago</span>
-                                </div>
-                                <span class="activity-status">Processing</span>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="fas fa-file-medical"></i>
-                                </div>
-                                <div class="activity-info">
-                                    <p class="activity-text">Prescription for Ibuprofen renewed</p>
-                                    <span class="activity-time">1 day ago</span>
-                                </div>
-                                <span class="activity-status">Active</span>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="fas fa-truck"></i>
-                                </div>
-                                <div class="activity-info">
-                                    <p class="activity-text">Order #1234 delivered</p>
-                                    <span class="activity-time">2 days ago</span>
-                                </div>
-                                <span class="activity-status">Delivered</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Orders Section -->
-                <section id="orders" class="dashboard-section hidden">
-                    <div class="section-header">
-                        <h1>My Orders</h1>
-                        <p class="section-description">View and manage your orders</p>
-                    </div>
-                    <div class="orders-list">
-                        <div class="order-item">
-                            <div class="order-info">
-                                <span class="order-date">2024-04-08</span>
-                                <span class="order-status">Delivered</span>
-                            </div>
-                            <div class="order-details">
-                                <span class="order-items">3 items</span>
-                                <span class="order-total">€45.99</span>
-                            </div>
-                            <div class="order-actions">
-                                <button class="action-btn edit-btn" title="Edit Order">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="action-btn delete-btn" title="Delete Order">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="order-item">
-                            <div class="order-info">
-                                <span class="order-date">2024-04-05</span>
-                                <span class="order-status">Processing</span>
-                            </div>
-                            <div class="order-details">
-                                <span class="order-items">2 items</span>
-                                <span class="order-total">€32.50</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Prescriptions Section -->
-                <section id="prescriptions" class="dashboard-section hidden">
-                    <div class="section-header">
-                        <h1>My Prescriptions</h1>
-                        <p class="section-description">View and manage your prescriptions</p>
-                    </div>
-                    <div class="prescriptions-list">
-                        <div class="prescription-item">
-                            <div class="prescription-info">
-                                <span class="prescription-name">Paracetamol</span>
-                                <span class="prescription-date">Valid until: 2024-05-08</span>
-                            </div>
-                            <span class="prescription-status">Active</span>
-                        </div>
-                        <div class="prescription-item">
-                            <div class="prescription-info">
-                                <span class="prescription-name">Ibuprofen</span>
-                                <span class="prescription-date">Valid until: 2024-05-12</span>
-                            </div>
-                            <span class="prescription-status">Active</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Profile Section -->
-                <section id="profile" class="dashboard-section hidden">
-                    <div class="section-header">
-                        <h1>My Profile</h1>
-                        <p class="section-description">Manage your personal information</p>
-                    </div>
-                    <div class="profile-content">
-                        <div class="profile-info">
-                            <div class="profile-header">
-                                <img src="../../images/R-removebg-preview.png" alt="Profile Picture" class="profile-picture">
-                                <div class="profile-name">
-                                    <!-- <?php echo htmlspecialchars($_SESSION['user_name']); ?> -->
-                                    <h2>John Doe</h2>
-                                    <p class="member-since">Member since 2024</p>
-                                </div>
-                            </div>
-                            <div class="profile-details">
-                                <div class="detail-group">
-                                    <h3>Personal Information</h3>
-                                    <div class="detail-item">
-                                        <span class="detail-label">Email:</span>
-                                        <!-- <?php echo htmlspecialchars($_SESSION['user_email']); ?> -->
-                                        <span class="detail-value">john.doe@example.com</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <span class="detail-label">Phone:</span>
-                                        <!-- <?php echo htmlspecialchars($_SESSION['user_phone']); ?> -->
-                                        <span class="detail-value">+31 6 12345678</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <span class="detail-label">Address:</span>
-                                        <!-- <?php echo htmlspecialchars($_SESSION['user_address']); ?> -->
-                                        <span class="detail-value">123 Main Street, Amsterdam</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Settings Section -->
-                <section id="settings" class="dashboard-section hidden">
-                    <div class="section-header">
-                        <h1>Settings</h1>
-                        <p class="section-description">Customize your account preferences</p>
-                    </div>
-                    <div class="settings-content">
-                        <div class="settings-group">
-                            <h3>Account Settings</h3>
-                            <div class="settings-item">
-                                <div class="settings-info">
-                                    <h4>Email Notifications</h4>
-                                    <p>Receive updates about your orders and prescriptions</p>
-                                </div>
-                                <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="settings-item">
-                                <div class="settings-info">
-                                    <h4>Two-Factor Authentication</h4>
-                                    <p>Add an extra layer of security to your account</p>
-                                </div>
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="settings-group">
-                            <h3>Privacy Settings</h3>
-                            <div class="settings-item">
-                                <div class="settings-info">
-                                    <h4>Profile Visibility</h4>
-                                    <p>Control who can see your profile information</p>
-                                </div>
-                                <select class="privacy-select">
-                                    <option value="public">Public</option>
-                                    <option value="private">Private</option>
-                                    <option value="friends">Friends Only</option>
+                                <h3>Patient Growth</h3>
+                                <select class="chart-period">
+                                    <option value="week">Weekly</option>
+                                    <option value="month">Monthly</option>
+                                    <option value="year" selected>Yearly</option>
                                 </select>
                             </div>
+                            <div class="chart-container">
+                                <canvas id="patientGrowthChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <div class="chart-header">
+                                <h3>Medication Sales</h3>
+                                <select class="chart-period">
+                                    <option value="week">Weekly</option>
+                                    <option value="month">Monthly</option>
+                                    <option value="year" selected>Yearly</option>
+                                </select>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="medicationSalesChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <div class="chart-header">
+                                <h3>Prescription Trends</h3>
+                                <select class="chart-period">
+                                    <option value="week">Weekly</option>
+                                    <option value="month">Monthly</option>
+                                    <option value="year" selected>Yearly</option>
+                                </select>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="prescriptionTrendsChart"></canvas>
+                            </div>
                         </div>
                     </div>
-                </section>
+
+                    <!-- Additional Analytics Grid -->
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <div class="chart-header">
+                                <h3>Top Medications</h3>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="topMedicationsChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <div class="chart-header">
+                                <h3>Patient Demographics</h3>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="patientDemographicsChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <div class="chart-header">
+                                <h3>Prescription Types</h3>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="prescriptionTypesChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <div class="chart-header">
+                                <h3>Revenue by Category</h3>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="revenueByCategoryChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Analytics -->
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <div class="chart-header">
+                                <h3>Inventory Levels</h3>
+                                <select class="chart-period">
+                                    <option value="week">Weekly</option>
+                                    <option value="month">Monthly</option>
+                                    <option value="year" selected>Yearly</option>
+                                </select>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="inventoryLevelsChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <div class="chart-header">
+                                <h3>Customer Satisfaction</h3>
+                                <select class="chart-period">
+                                    <option value="week">Weekly</option>
+                                    <option value="month">Monthly</option>
+                                    <option value="year" selected>Yearly</option>
+                                </select>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="customerSatisfactionChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <div class="chart-header">
+                                <h3>Staff Performance</h3>
+                                <select class="chart-period">
+                                    <option value="week">Weekly</option>
+                                    <option value="month">Monthly</option>
+                                    <option value="year" selected>Yearly</option>
+                                </select>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="staffPerformanceChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Settings</h2>
+                </div>
+                <div class="settings-content">
+                    <div class="settings-grid">
+                        <div class="settings-card">
+                            <h3>Account Settings</h3>
+                            <div class="settings-form">
+                                <form id="accountSettingsForm">
+                                    <div class="form-group">
+                                        <label for="accountEmail">Email Address</label>
+                                        <input type="email" id="accountEmail" value="john.doe@example.com" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="currentPassword">Current Password</label>
+                                        <input type="password" id="currentPassword" placeholder="Enter current password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="newPassword">New Password</label>
+                                        <input type="password" id="newPassword" placeholder="Enter new password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirmPassword">Confirm New Password</label>
+                                        <input type="password" id="confirmPassword" placeholder="Confirm new password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="twoFactorAuth">Two-Factor Authentication</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="twoFactorAuth" checked>
+                                            <span class="toggle-slider"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="notificationPreferences">Notification Preferences</label>
+                                        <div class="checkbox-group">
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" name="notifications" value="email" checked>
+                                                Email Notifications
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" name="notifications" value="sms" checked>
+                                                SMS Notifications
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" name="notifications" value="app">
+                                                In-App Notifications
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="submit" class="save-btn">Save Changes</button>
+                                        <button type="button" class="cancel-btn" onclick="resetAccountSettings()">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="settings-card">
+                            <h3>Pharmacy Settings</h3>
+                            <div class="settings-form">
+                                <form id="pharmacySettingsForm">
+                                    <div class="form-group">
+                                        <label for="pharmacy-name">Pharmacy Name</label>
+                                        <input type="text" id="pharmacy-name" value="Apothecare" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pharmacyAddress">Address</label>
+                                        <textarea id="pharmacyAddress" required>123 Main Street, City, State 12345</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pharmacyPhone">Phone Number</label>
+                                        <input type="tel" id="pharmacyPhone" value="+1 234 567 8900" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pharmacyHours">Business Hours</label>
+                                        <div class="hours-grid">
+                                            <div class="hours-item">
+                                                <span>Monday - Friday</span>
+                                                <input type="text" value="9:00 AM - 6:00 PM" readonly>
+                                            </div>
+                                            <div class="hours-item">
+                                                <span>Saturday</span>
+                                                <input type="text" value="10:00 AM - 4:00 PM" readonly>
+                                            </div>
+                                            <div class="hours-item">
+                                                <span>Sunday</span>
+                                                <input type="text" value="Closed" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="submit" class="save-btn">Save Changes</button>
+                                        <button type="button" class="cancel-btn" onclick="resetPharmacySettings()">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="settings-card">
+                            <h3>Notification Settings</h3>
+                            <div class="settings-form">
+                                <form id="notificationSettingsForm">
+                                    <div class="form-group">
+                                        <label for="emailNotifications">Email Notifications</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="emailNotifications" checked>
+                                            <span class="toggle-slider"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="smsNotifications">SMS Notifications</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="smsNotifications" checked>
+                                            <span class="toggle-slider"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="appNotifications">In-App Notifications</label>
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="appNotifications" checked>
+                                            <span class="toggle-slider"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Notification Types</label>
+                                        <div class="checkbox-group">
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" name="notificationTypes" value="prescriptions" checked>
+                                                New Prescriptions
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" name="notificationTypes" value="inventory" checked>
+                                                Low Inventory Alerts
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" name="notificationTypes" value="appointments" checked>
+                                                Appointment Reminders
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" name="notificationTypes" value="system" checked>
+                                                System Updates
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="submit" class="save-btn">Save Changes</button>
+                                        <button type="button" class="cancel-btn" onclick="resetNotificationSettings()">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Profile</h2>
+                </div>
+                <div class="profile-content">
+                    <div class="profile-header">
+                        <div class="profile-picture-container">
+                            <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-picture" id="profilePicture">
+                            <button class="change-picture-btn">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                            <input type="file" id="profileImageInput" accept="image/*" style="display: none;">
+                        </div>
+                        <div class="profile-name">
+                            <h2>Admin</h2>
+                            <p class="role">Pharmacist</p>
+                            <p class="member-since">Member since 2025</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <div class="detail-group">
+                            <h3>Personal Information</h3>
+                            <div class="detail-item">
+                                <span class="detail-label">Full Name</span>
+                                <span class="detail-value">John Doe</span>
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Email</span>
+                                <span class="detail-value">john.doe@example.com</span>
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Phone</span>
+                                <span class="detail-value">+1 234 567 890</span>
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                            </div>
+                        </div>
+                        <div class="detail-group">
+                            <h3>Professional Information</h3>
+                            <div class="detail-item">
+                                <span class="detail-label">Position</span>
+                                <span class="detail-value">Pharmacy Manager</span>
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">License Number</span>
+                                <span class="detail-value">PH123456</span>
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Specialization</span>
+                                <span class="detail-value">Clinical Pharmacy</span>
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                            </div>
+                        </div>
+                        <div class="detail-group">
+                            <h3>Account Settings</h3>
+                            <div class="detail-item">
+                                <span class="detail-label">Password</span>
+                                <span class="detail-value">********</span>
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Two-Factor Auth</span>
+                                <span class="detail-value">Enabled</span>
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Notification Settings</span>
+                                <span class="detail-value">Custom</span>
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</div>
+<!-- Patient Details Modal -->
+<div id="patientDetailsModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Patient Details</h2>
+            <button class="close-modal" onclick="closePatientDetailsModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="patient-info-grid">
+                <div class="info-section">
+                    <h3>Personal Information</h3>
+                    <div class="info-item">
+                        <span class="info-label">Name:</span>
+                        <span class="info-value" id="patientDetailsName"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">ID:</span>
+                        <span class="info-value" id="patientDetailsId"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Date of Birth:</span>
+                        <span class="info-value" id="patientDetailsDOB"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Gender:</span>
+                        <span class="info-value" id="patientDetailsGender"></span>
+                    </div>
+                </div>
+                <div class="info-section">
+                    <h3>Contact Information</h3>
+                    <div class="info-item">
+                        <span class="info-label">Email:</span>
+                        <span class="info-value" id="patientDetailsEmail"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Phone:</span>
+                        <span class="info-value" id="patientDetailsPhone"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Address:</span>
+                        <span class="info-value" id="patientDetailsAddress"></span>
+                    </div>
+                </div>
+                <div class="info-section">
+                    <h3>Medical History</h3>
+                    <div class="info-item">
+                        <span class="info-label">Status:</span>
+                        <span class="info-value" id="patientDetailsStatus"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Last Visit:</span>
+                        <span class="info-value" id="patientDetailsLastVisit"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Prescriptions:</span>
+                        <div class="prescriptions-list" id="patientDetailsPrescriptions"></div>
+                    </div>
+                </div>
             </div>
-        </main>
+        </div>
+        <div class="modal-footer">
+            <button class="edit-btn" onclick="editPatientDetails()">Edit Information</button>
+            <button class="close-btn" onclick="closePatientDetailsModal()">Close</button>
+        </div>
     </div>
-    <script src="dashboard.js"></script>
+</div>
+<script src="dashboard.js"></script>
 </body>
-</html> 
+</html>

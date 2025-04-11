@@ -3,65 +3,65 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Sign up</title>
+    <title>Registreren</title>
     <link rel="stylesheet" href="signup.css"/>
 </head>
 <body>
-<!-- Main container for the sign-up form -->
+<!-- Hoofdcontainer voor het registratieformulier -->
 <div class="container">
-    <!-- Pharmacy logo with link to home page -->
+    <!-- Apotheeklogo met link naar de startpagina -->
     <a href="../home-page/home.html"><img src="../../images/Nieuwe logo.png" alt="Logo quiz" class="logo"></a>
 
-    <!-- Registration form -->
+    <!-- Registratieformulier -->
     <form id="signupForm" action="./../../backend/sign-up/signup.php" method="POST">
-        <h1>Sign up</h1>
+        <h1>Registreren</h1>
 
-        <!-- Username input with validation requirements -->
+        <!-- Gebruikersnaam invoer met validatievereisten -->
         <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username" required />
+            <label for="username">Gebruikersnaam:</label>
+            <input type="text" id="username" name="username" placeholder="Voer uw gebruikersnaam in" required />
             <div class="requirements" id="usernameRequirements" style="display:none;">
-                <small data-requirement="length" class="invalid">Must be 3-20 characters long</small><br>
-                <small data-requirement="chars" class="invalid">Only letters, numbers, and underscores allowed</small>
+                <small data-requirement="length" class="invalid">Moet 3-20 tekens lang zijn</small><br>
+                <small data-requirement="chars" class="invalid">Alleen letters, cijfers en underscores toegestaan</small>
             </div>
         </div>
 
-        <!-- Email input with validation requirements -->
+        <!-- E-mail invoer met validatievereisten -->
         <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required />
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="Voer uw e-mail in" required />
             <div class="requirements" id="emailRequirements" style="display:none;">
-                <small data-requirement="format" class="invalid">Must be a valid email format (example@mail.com)</small>
+                <small data-requirement="format" class="invalid">Moet een geldig e-mailformaat zijn (voorbeeld@mail.com)</small>
             </div>
         </div>
 
-        <!-- Password input with security requirements -->
+        <!-- Wachtwoord invoer met beveiligingsvereisten -->
         <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required />
+            <label for="password">Wachtwoord:</label>
+            <input type="password" id="password" name="password" placeholder="Voer uw wachtwoord in" required />
             <div class="requirements" id="passwordRequirements" style="display:none;">
-                <small data-requirement="length" class="invalid">At least 8 characters</small><br>
-                <small data-requirement="uppercase" class="invalid">At least one uppercase letter</small><br>
-                <small data-requirement="lowercase" class="invalid">At least one lowercase letter</small><br>
-                <small data-requirement="number" class="invalid">At least one number</small>
+                <small data-requirement="length" class="invalid">Minimaal 8 tekens</small><br>
+                <small data-requirement="uppercase" class="invalid">Minimaal één hoofdletter</small><br>
+                <small data-requirement="lowercase" class="invalid">Minimaal één kleine letter</small><br>
+                <small data-requirement="number" class="invalid">Minimaal één cijfer</small>
             </div>
         </div>
 
-        <!-- Password confirmation with matching validation -->
+        <!-- Wachtwoordbevestiging met validatie -->
         <div class="form-group">
-            <label for="confirmPassword">Re-enter password:</label>
-            <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm your password" required />
+            <label for="confirmPassword">Herhaal wachtwoord:</label>
+            <input type="password" id="confirmPassword" name="confirm_password" placeholder="Bevestig uw wachtwoord" required />
             <div class="requirements" id="confirmRequirements" style="display:none;">
-                <small data-requirement="match" class="invalid">Passwords must match</small>
+                <small data-requirement="match" class="invalid">Wachtwoorden moeten overeenkomen</small>
             </div>
         </div>
 
-        <!-- Submit button -->
-        <button type="submit">Sign up</button>
+        <!-- Verzenden knop -->
+        <button type="submit">Registreren</button>
 
-        <!-- Login link for existing users -->
-        <p>Already have an account?</p>
-        <a href="../login-page/login.html" class="login-link">Log in!</a>
+        <!-- Login link voor bestaande gebruikers -->
+        <p>Heeft u al een account?</p>
+        <a href="../login-page/login.html" class="login-link">Inloggen!</a>
     </form>
 </div>
 
